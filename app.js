@@ -688,6 +688,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
   const sources = id === 'scsa-requirements' ? `<p><a href="https://senior-secondary.scsa.wa.edu.au/vet/endorsed-programs">SCSA endorsed program guidance and application forms</a></p>` : '';
   main.innerHTML = `${header}<section class="content-panel"><h2>${draft.heading}</h2><p>${draft.lead}</p><ul>${draft.items.map(item => `<li>${item}</li>`).join('')}</ul>${sources}</section>`;
  }
+ if(['how-it-will-work','portfolio-view','teacher-view','provider-view'].includes(id))main.insertAdjacentHTML('beforeend',`<section class="content-panel"><h2>Learning record & verification mockup</h2><p>Explore an original SkillsQuest concept: employability skill sections, game-recorded time, external verification and a separate portfolio review. Fictional data only; no records are sent or saved.</p><p><a href="learning-record.html" target="_blank" rel="noopener">Open the interactive mockup in a full window ↗</a></p><iframe src="learning-record.html" title="SkillsQuest learning record and verification mockup" style="width:100%;height:950px;border:1px solid #dce2d5;border-radius:16px" loading="lazy"></iframe></section>`);
  if(id==='skills-choice')main.insertAdjacentHTML('beforeend',capabilityComparison());
  if(topicExtracts[id])main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts[id]));
  if(slideGroups[id]) {

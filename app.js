@@ -1,6 +1,6 @@
 'use strict';
 const pages = [
- {id:'overview',title:'Overview',intro:'SkillsQuest is a proposed Provider Endorsed Program with the School Curriculum and Standards Authority (SCSA).'},
+ {id:'overview',title:'Overview',intro:'SkillsQuest is a proposed provider-developed endorsed program, subject to approval by the School Curriculum and Standards Authority (<a href="#scsa">SCSA</a>).'},
  {id:'who-will-host',title:'Who will host',intro:'Compare the organisations that could provide SkillsQuest, operate the platform and fund equitable access. No provider model has been selected.'},
  {id:'how-it-will-work',title:'How it will work',intro:'A school-enrolled learning program: learn, record experiences, verify participation, reflect and demonstrate growth.'},
  {id:'transferable-skills',title:'Transferable Skills',intro:'A placeholder for Tania’s work on how skills carry across tasks, subjects and work settings.',post:{path:'transferable-skills-post.svg',width:714,height:1344,alt:'Tania Byrnes’s post on transfer, illustrated with examples from bus driving, oral presentations and training. The post describes identifying common skills and gaps, reducing cognitive load during initial practice and using consistent teaching across contexts.'}},
@@ -17,8 +17,9 @@ const pages = [
  {id:'assessment',title:'Assessment',intro:'The draft assessment approach focuses on what learners can explain about their own actions, results and learning in authentic contexts. Lab feedback supports practice and a portfolio review considers the evidence.',children:['reflection-tool','evidence-of-learning']},
  {id:'reflection-tool',title:'Reflection Tool',parent:'assessment',intro:'Design prompts that help learners explain their choices, recognise learning and consider their next step.'},
  {id:'evidence-of-learning',title:'Evidence of Learning',parent:'assessment',intro:'Clarify what counts as evidence and how it demonstrates the intended learning.'},
- {id:'scsa-requirements',title:'SCSA requirements',intro:'A dedicated place to collect and check the requirements relevant to a proposed endorsed program.'},
- {id:'scsa-application',title:'SCSA Application',intro:'Organise the application material when the program design and requirements are ready.'},
+ {id:'scsa',title:'SCSA',intro:'Requirements and application planning for the proposed provider-developed endorsed program.',children:['scsa-requirements','scsa-application']},
+ {id:'scsa-requirements',title:'SCSA Requirements',parent:'scsa',intro:'A dedicated place to collect and check the requirements relevant to a proposed endorsed program.'},
+ {id:'scsa-application',title:'SCSA Application',parent:'scsa',intro:'Organise the application material when the program design and requirements are ready.'},
  {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'},
  {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'}
 ];

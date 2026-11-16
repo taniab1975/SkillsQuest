@@ -581,16 +581,6 @@ const capabilityModels = [
     "#research-background/halsall"
   ],
   [
-    "Rossmoyne SHS",
-    "Capabilities for Learning and Life · slide 24",
-    "#research-background/rossmoyne"
-  ],
-  [
-    "Harrisdale SHS",
-    "Initial elective focus · slide 16",
-    "#research-background/harrisdale"
-  ],
-  [
     "Skills Builder",
     "2024 version shown at Harrisdale · slide 18",
     "#research-background/harrisdale"
@@ -617,21 +607,141 @@ const capabilityModels = [
   ]
 ];
 const capabilityRows = [
- ["Communication","Interpersonal skills and communication","Communication","Interpersonal skills and communication","Listening + speaking","Communication","~Literacy","Oral communication","Communication"],
- ["Collaboration","Teamwork and collaboration","Teamwork and collaboration","Teamwork and collaboration","Teamwork","Collaboration","~Personal and social capability","Teamwork","Teamwork"],
- ["Initiative","Initiative","~Learner agency, work ethic","","~Aiming high","~Agency in learning","~Personal and social capability","Initiative and innovation","Adaptability and initiative"],
- ["Problem-solving","Problem solving","Problem solving","Problem solving","Problem solving","~Quality thinking","~Critical and creative thinking","Problem solving","Problem solving and decision making"],
- ["Adaptability","Adaptability and resilience","Adaptability","","~Staying positive","~Agency in learning","~Personal and social capability","","Adaptability and initiative"],
- ["Self-management","~Planning and organisation","~Work ethic, learner agency","","~Aiming high, staying positive","~Agency in learning","~Personal and social capability","~Planning and organising","~Planning and organising"],
- ["Creativity","Creativity","Creative thinking","Creativity","Creativity","~Quality thinking","Critical and creative thinking","~Initiative and innovation","Creativity and innovation"],
- ["Leadership","","Leadership","","Leadership","~Collaboration","~Personal and social capability","","Leadership and developing others"],
- ["Critical thinking","Critical thinking","Critical thinking","","","~Quality thinking","Critical and creative thinking","","Critical and analytical thinking"],
- ["Learning, agency and metacognition","~Lifelong learning","Learner agency, metacognition","","~Aiming high","Agency in learning","~Critical and creative thinking","Learning","Learning"],
- ["Resilience and emotional intelligence","~Adaptability and resilience","Resilience, emotional intelligence","","~Staying positive","~Agency in learning","~Personal and social capability","",""],
- ["Planning and organising","Planning and organisation","~Work ethic, learner agency","","~Aiming high","~Agency in learning","~Personal and social capability","Planning and organising","Planning and organising"],
- ["Ethics, culture and citizenship","Cultural responsiveness, ethical integrity","Ethical and cultural understanding","","","Acting ethically, active citizenship","Ethical understanding, intercultural understanding","",""],
- ["Digital literacy","Foundational literacies","Digital literacy","","","","Digital literacy","Digital engagement","Digital literacy"],
- ["Literacy and numeracy","Foundational literacies","Literacy, numeracy","","","","Literacy, numeracy","Reading, writing, numeracy","Literacy, numeracy"]
+  [
+    "Communication",
+    "Interpersonal skills and communication",
+    "Listening + speaking",
+    "Communication",
+    "~Literacy",
+    "Oral communication",
+    "Communication"
+  ],
+  [
+    "Collaboration",
+    "Teamwork and collaboration",
+    "Teamwork",
+    "Collaboration",
+    "~Personal and social capability",
+    "Teamwork",
+    "Teamwork"
+  ],
+  [
+    "Initiative",
+    "Initiative",
+    "~Aiming high",
+    "~Agency in learning",
+    "~Personal and social capability",
+    "Initiative and innovation",
+    "Adaptability and initiative"
+  ],
+  [
+    "Problem-solving",
+    "Problem solving",
+    "Problem solving",
+    "~Quality thinking",
+    "~Critical and creative thinking",
+    "Problem solving",
+    "Problem solving and decision making"
+  ],
+  [
+    "Adaptability",
+    "Adaptability and resilience",
+    "~Staying positive",
+    "~Agency in learning",
+    "~Personal and social capability",
+    "",
+    "Adaptability and initiative"
+  ],
+  [
+    "Self-management",
+    "~Planning and organisation",
+    "~Aiming high, staying positive",
+    "~Agency in learning",
+    "~Personal and social capability",
+    "~Planning and organising",
+    "~Planning and organising"
+  ],
+  [
+    "Creativity",
+    "Creativity",
+    "Creativity",
+    "~Quality thinking",
+    "Critical and creative thinking",
+    "~Initiative and innovation",
+    "Creativity and innovation"
+  ],
+  [
+    "Leadership",
+    "",
+    "Leadership",
+    "~Collaboration",
+    "~Personal and social capability",
+    "",
+    "Leadership and developing others"
+  ],
+  [
+    "Critical thinking",
+    "Critical thinking",
+    "",
+    "~Quality thinking",
+    "Critical and creative thinking",
+    "",
+    "Critical and analytical thinking"
+  ],
+  [
+    "Learning, agency and metacognition",
+    "~Lifelong learning",
+    "~Aiming high",
+    "Agency in learning",
+    "~Critical and creative thinking",
+    "Learning",
+    "Learning"
+  ],
+  [
+    "Resilience and emotional intelligence",
+    "~Adaptability and resilience",
+    "~Staying positive",
+    "~Agency in learning",
+    "~Personal and social capability",
+    "",
+    ""
+  ],
+  [
+    "Planning and organising",
+    "Planning and organisation",
+    "~Aiming high",
+    "~Agency in learning",
+    "~Personal and social capability",
+    "Planning and organising",
+    "Planning and organising"
+  ],
+  [
+    "Ethics, culture and citizenship",
+    "Cultural responsiveness, ethical integrity",
+    "",
+    "Acting ethically, active citizenship",
+    "Ethical understanding, intercultural understanding",
+    "",
+    ""
+  ],
+  [
+    "Digital literacy",
+    "Foundational literacies",
+    "",
+    "",
+    "Digital literacy",
+    "Digital engagement",
+    "Digital literacy"
+  ],
+  [
+    "Literacy and numeracy",
+    "Foundational literacies",
+    "",
+    "",
+    "Literacy, numeracy",
+    "Reading, writing, numeracy",
+    "Literacy, numeracy"
+  ]
 ];
 
 function capabilityComparison() {
@@ -648,7 +758,7 @@ function capabilityComparison() {
  return `<section class="content-panel" id="capability-comparison">
   <h2>Compare capability models</h2>
   <p>Read across a row to compare the labels. A shaded cell shows an explicit match or close synonym. <strong>Partial</strong> marks a broader or related concept. A dash means the source has no separate match at the level compared here.</p>
-  <p>Scroll across to see all eight sources. Select a column heading to open its source.</p>
+  <p>Scroll across to see all six sources. Select a column heading to open its source.</p>
   <div class="capability-scroll" tabindex="0" role="region" aria-label="Scrollable capability comparison">
    <table class="capability-table">
     <thead><tr><th scope="col">SkillQuest theme or candidate</th>${columns}</tr></thead>
@@ -661,7 +771,7 @@ function capabilityComparison() {
    <li><strong>Where does learning to learn sit?</strong> Learner agency, reflection and planning appear in several sources. Decide whether to name them, include them within Self-management or teach them across the labs.</li>
    <li><strong>Which capabilities run across the program?</strong> Consider how literacy, numeracy, digital literacy, ethical judgement and intercultural understanding would appear in lab tasks and portfolio evidence.</li>
   </ul>
-  <p>This is a draft interpretation of the source labels and their scope. Harrisdale’s column shows its initial elective focus, while Skills Builder shows the version it later illustrated. The historical Australian Skills Classification and Sattler’s research synthesis are workforce references. Track the developing National Skills Taxonomy in the update below.</p>
+  <p>This is a draft interpretation of the source labels and their scope. The Skills Builder column uses the version illustrated in the Harrisdale material. The Harrisdale and Rossmoyne school examples remain available in Research & Background rather than as separate comparison columns. The historical Australian Skills Classification and Sattler’s research synthesis are workforce references. Track the developing National Skills Taxonomy in the update below.</p>
  </section>`;
 }
 

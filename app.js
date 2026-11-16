@@ -1,7 +1,6 @@
 'use strict';
 const pages = [
  {id:'overview',title:'Overview',intro:'SkillsQuest is a proposed Provider Endorsed Program with the School Curriculum and Standards Authority (SCSA).'},
- {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'},
  {id:'purpose',title:'Purpose',intro:'Define what SkillsQuest is here to achieve, who it is for and the difference it should make.'},
  {id:'who-will-host',title:'Who will host',intro:'Explore who could host, own and support the program. No host has been confirmed.'},
  {id:'how-it-will-work',title:'How it will work',intro:'Map the learner journey and the practical arrangements that make it possible.'},
@@ -21,7 +20,8 @@ const pages = [
  {id:'evidence-of-learning',title:'Evidence of Learning',parent:'assessment',intro:'Clarify what counts as evidence and how it demonstrates the intended learning.'},
  {id:'scsa-requirements',title:'SCSA requirements',intro:'A dedicated place to collect and check the requirements relevant to a proposed endorsed program.'},
  {id:'scsa-application',title:'SCSA Application',intro:'Organise the application material when the program design and requirements are ready.'},
- {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'}
+ {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'},
+ {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'}
 ];
 const drafts = {
   'purpose': {

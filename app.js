@@ -2,7 +2,7 @@
 const pages = [
  {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'},
  {id:'overview',title:'Overview',intro:'SkillQuest is Tania’s personal project to develop an employability learning and portfolio program for Years 10–12. This hub brings together the playable Skillsville prototype and the plans for a proposed SCSA endorsed program.'},
- {id:'research-background',title:'Research & Background',intro:'The research, school examples and earlier design work behind SkillQuest.'},
+ {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'},
  {id:'purpose',title:'Purpose',intro:'Define what SkillsQuest is here to achieve, who it is for and the difference it should make.'},
  {id:'who-will-host',title:'Who will host',intro:'Explore who could host, own and support the program. No host has been confirmed.'},
  {id:'how-it-will-work',title:'How it will work',intro:'Map the learner journey and the practical arrangements that make it possible.'},
@@ -111,7 +111,6 @@ const references = [
     "title": "Work Capabilities literature review",
     "type": "WA Department of Education research and guidance",
     "citation": "Dr Lucy Halsall. Supplied excerpt in Work Capabilities, 7 February 2023, pp. 1–8. The presentation also credits Janet Silburn Barker.",
-    "summary": "The Department material situates work capabilities across terminology and frameworks and makes the case for explicit teaching, a shared vocabulary, self-assessment and career planning. The supplied presentation excerpt is the source for this entry.",
     "links": [
       "skills-choice",
       "pedagogy",
@@ -125,7 +124,6 @@ const references = [
     "title": "Rossmoyne SHS illustration of practice",
     "type": "School practice",
     "citation": "Janet Silburn Barker, Rossmoyne SHS section of Work Capabilities, 7 February 2023, pp. 9–39.",
-    "summary": "The school defined capabilities, developed shared teaching resources and used teacher-led workshops and a web app to share exemplars. Its implementation sequence offers ideas for teacher support and building consistency during a SkillQuest pilot.",
     "links": [
       "pedagogy",
       "teacher-view",
@@ -137,7 +135,6 @@ const references = [
     "title": "Harrisdale Entrepreneurship and Capabilities",
     "type": "School practice",
     "citation": "Embedding Capabilities into the Entrepreneurship and Innovation Elective, pp. 4, 16, 23 and 30.",
-    "summary": "The Years 9–10 elective mapped work capabilities to stages of design thinking and used practical projects, reflection and e-portfolios. Its initial focus was creativity, problem solving, interpersonal skills and communication, and teamwork and collaboration.",
     "links": [
       "skills-choice",
       "skills-labs",
@@ -149,7 +146,6 @@ const references = [
     "title": "TKC Thoughts",
     "type": "Earlier project thinking",
     "citation": "TKC Thoughts [Auto-saved], slides 13–16 and 21–32.",
-    "summary": "The deck asks how transferable capabilities could be learned, assessed and showcased across pathways. It explores the Big Picture learner profile, learner voice and evidence links, and sketches a school-specific activity-to-capability map with a Situation, Action, Outcome field.",
     "links": [
       "purpose",
       "skills-choice",
@@ -162,7 +158,6 @@ const references = [
     "title": "Kolbe and reporting",
     "type": "Earlier project thinking",
     "citation": "Kolbe and reporting, slides 1, 4–5.",
-    "summary": "The deck compares portfolios, passports and profiles. Its reflection diagram shows David Kolb’s four-stage experiential learning cycle. The slide pairs capability-building tasks with SAOs, reflection and goal setting.",
     "links": [
       "pedagogy",
       "reflection-tool",
@@ -174,7 +169,6 @@ const references = [
     "title": "Matching Not Ranking",
     "type": "Earlier careers and portfolio thinking",
     "citation": "Matching Not Ranking 2, opening slide and the learner profile and e-portfolio sections.",
-    "summary": "This presentation connects a learner’s interests, goals, capabilities and aspirations to possible occupations or courses. The portfolio implication is to help a learner find examples that fit a future opportunity and explain why it interests them.",
     "links": [
       "purpose",
       "portfolio-view",
@@ -188,7 +182,6 @@ const references = [
     "title": "Pathways to Post-School Success Expert Panel Report",
     "type": "WA policy background",
     "citation": "WA Expert Panel, final report, 2024, pp. 47–48, recommendations 26–27.",
-    "summary": "The panel recommended investigating learner profiles over time and exploring how complex competencies could be taught, assessed and certified through course content. These are panel recommendations and provide policy context for the proposal. Current endorsement guidance sits on the SCSA requirements tab.",
     "links": [
       "purpose",
       "portfolio-view",
@@ -329,6 +322,206 @@ const sourceNotes = {
     ]
   ]
 };
+const topicExtracts = {
+  "skills-choice": [
+    [
+      "What counts as a skill?",
+      "Lucy Sattler’s October 2026 study compares eight workforce frameworks, including O*NET, ESCO, SkillsFuture Singapore and the former Australian Skills Classification. Twelve core concepts appeared in at least half of the frameworks. Communication, teamwork and problem solving appeared in all eight, even where labels and definitions differed. For SkillQuest, this supports testing learner-friendly names and keeping a record of equivalent terms used in school and work. The study provides a comparison point for the eight prototype themes.",
+      [
+        [
+          "Read Sattler’s paper and Table 4",
+          "https://gjsd.gile-edu.org/index.php/home/article/view/14-sattler-3-20"
+        ]
+      ]
+    ],
+    [
+      "Australian skills taxonomy progress",
+      "The Australian Skills Classification organised occupational information into core competencies, specialist tasks and technology tools. Jobs and Skills Australia is building the National Skills Taxonomy on lessons from that work. Consultation began in June 2024 and the October 2026 newsletter reported testing and independent review. JSA’s November webinar describes giving one skill a consistent identity while making it discoverable across several occupations or settings. The design paper was planned for March 2027 as of the October update.",
+      [
+        [
+          "National Skills Taxonomy project",
+          "https://www.jobsandskills.gov.au/data/national-skills-taxonomy"
+        ],
+        [
+          "October 2026 progress update",
+          "https://www.jobsandskills.gov.au/sites/default/files/2026-10/nst_newsletter_-_october_2026.pdf"
+        ],
+        [
+          "November webinar",
+          "https://www.jobsandskills.gov.au/news/webinar-more-than-one-way-find-skill"
+        ]
+      ]
+    ],
+    [
+      "SCSA General Capabilities updates",
+      "SCSA published updated Pre-primary to Year 10 General Capabilities in 2026, adapting Australian Curriculum v9 for Western Australia. The seven areas are Critical and creative thinking, Digital literacy, Ethical understanding, Intercultural understanding, Literacy, Numeracy, and Personal and social capability. SCSA also updated course-specific statements in Year 11 ATAR and General syllabuses for 2026 and reviewed the equivalent Year 12 statements for teaching in 2027. These are curriculum references for comparing coverage and language, with endorsed program requirements handled separately.",
+      [
+        [
+          "WA General Capabilities and continua",
+          "https://k10outline.scsa.wa.edu.au/home/wa-curriculum/general-capabilities"
+        ],
+        [
+          "Year 11 syllabus update",
+          "https://www.scsa.wa.edu.au/7to12-circulars/edition-1-february-2026/2.-courses-11-and-12/atar-and-general-year-11-syllabus-updates-for-2026"
+        ],
+        [
+          "Years 11 and 12 syllabus review",
+          "https://senior-secondary.scsa.wa.edu.au/syllabus-and-support-materials/syllabus-review"
+        ]
+      ]
+    ],
+    [
+      "Compare models in their original context",
+      "Lucy Halsall’s Department slides bring together Australian and international models. Rossmoyne groups capabilities for consistent teaching across learning areas. Harrisdale shows how an elective chose a teachable subset and later drew on Skills Builder. The TKC slides compare a competency model and an activity map across multiple frameworks. The formal SkillQuest capability set remains open."
+    ]
+  ],
+  "assessment": [
+    [
+      "Kolb, STAR and SAO in practice",
+      "The reporting deck and Matching Not Ranking slides show David Kolb’s cycle. Learners have an experience, reflect on it, draw a conclusion and try a revised approach. STAR helps them account for their situation, task, action and result. The earlier Harrisdale and TKC examples use Situation, Action, Outcome (SAO). For a pilot, the same fictional experience can show whether separating Task helps students describe their responsibility and whether a next-attempt prompt helps them apply the learning."
+    ],
+    [
+      "Assessment that fits the learning goal",
+      "The WA Expert Panel’s recommendations 11 and 12 propose designing assessment around the learning goal and choosing methods appropriate to what is being assessed. Recommendation 27 considers how complex competencies could be assessed through course content. In SkillQuest, that gives a rationale for considering STAR evidence, observations and work samples together when the outcome calls for them.",
+      [["Final WA Expert Panel report", "https://www.education.wa.edu.au/dl/l46qpd2x"]]
+    ]
+  ],
+  "reflection-tool": [
+    [
+      "Use the worked example",
+      "The Assessment tab holds the original Kolb slides, including the worked example from Matching Not Ranking. Use the cycle to move from describing what happened to deciding what to try next.",
+      [
+        [
+          "See the extracted slides on Assessment",
+          "#assessment"
+        ]
+      ]
+    ]
+  ],
+  "purpose": [
+    [
+      "Pathways and broader recognition",
+      "Matching Not Ranking asks how strengths, interests and aspirations can help learners find a suitable course or occupation. The WA Expert Panel’s final report places broader recognition in the context of school engagement, different pathways and preparation for life beyond school. Its recommendations 26 and 27 investigate learner profiles and complex competencies.",
+      [
+        [
+          "Expert Panel final report, pp. 47–48",
+          "https://www.education.wa.edu.au/dl/l46qpd2x"
+        ]
+      ]
+    ]
+  ],
+  "who-will-host": [
+    [
+      "What school implementation involved",
+      "Rossmoyne’s example used a cross-curriculum team, leadership support, teacher professional learning, shared resources and a school audit. That experience helps identify the support a pilot school would need. The applicant and host remain open.",
+      [
+        [
+          "Rossmoyne professional learning slides",
+          "#teacher-view"
+        ]
+      ]
+    ]
+  ],
+  "how-it-will-work": [
+    [
+      "From practice to evidence",
+      "Harrisdale’s elective sequenced explicit capability teaching, project practice, learner self-assessment and a progress log. Rossmoyne’s implementation started with shared definitions and teacher examples before widening delivery. SkillQuest can use these as school practice examples for designing a pilot.",
+      [
+        [
+          "Harrisdale project examples",
+          "#skills-labs"
+        ],
+        [
+          "Progress log extract",
+          "#portfolio-entry"
+        ]
+      ]
+    ]
+  ],
+  "main-ecosystem": [
+    [
+      "Where the source ideas fit",
+      "The source examples connect explicit teaching and repeat practice to recording and reviewing an authentic experience. The Skills Labs, Portfolio Entry, Portfolio View and Teacher View tabs contain the corresponding extracts."
+    ]
+  ],
+  "provider-view": [
+    [
+      "Experience and verification",
+      "The recognition slides distinguish learner-collected work from credentials attested by a person or organisation. That distinction helps define when a provider might confirm an experience and what a teacher would still need to review.",
+      [
+        [
+          "Portfolio, passport and profile extract",
+          "#portfolio-view"
+        ]
+      ]
+    ]
+  ],
+  "evidence-of-learning": [
+    [
+      "From activity to observable evidence",
+      "The TKC activity map shows how school activities might give learners opportunities to demonstrate a capability. The New Metrics slides give examples of behavioural indicators and a validation process. A framework crosswalk describes the opportunity. The learner’s actions and supporting evidence allow a reviewer to judge what was demonstrated.",
+      [
+        [
+          "Assessment and behavioural indicator slides",
+          "#assessment"
+        ],
+        [
+          "Activity map",
+          "#portfolio-entry"
+        ]
+      ]
+    ]
+  ],
+  "scsa-requirements": [
+    [
+      "Curriculum changes and endorsement",
+      "The SCSA syllabus and General Capabilities updates sit in Skills Choice for comparison with the proposed outcomes. The Expert Panel’s recommendations about learner profiles and complex competencies sit in Purpose and Assessment as policy background.",
+      [
+        [
+          "SCSA updates on Skills Choice",
+          "#skills-choice"
+        ],
+        [
+          "Expert Panel final report",
+          "https://www.education.wa.edu.au/dl/l46qpd2x"
+        ]
+      ]
+    ]
+  ]
+};
+const slideGroups = {
+  "skills-choice": [
+    "skills-choice-a",
+    "skills-choice-b"
+  ],
+  "assessment": [
+    "assessment"
+  ],
+  "pedagogy": [
+    "pedagogy"
+  ],
+  "skills-labs": [
+    "skills-labs"
+  ],
+  "portfolio-entry": [
+    "portfolio-entry"
+  ],
+  "portfolio-view": [
+    "portfolio-view"
+  ],
+  "teacher-view": [
+    "teacher-view"
+  ],
+  "efficacy-building": [
+    "efficacy-building"
+  ],
+  "transferable-skills": [
+    "transferable-skills"
+  ],
+  "scsa-application": [
+    "scsa-application"
+  ]
+};
 const byId = Object.fromEntries(pages.map(p=>[p.id,p]));
 const nav=document.querySelector('#navigation');
 let number=0;
@@ -341,7 +534,6 @@ function researchLibrary() {
   <section class="content-panel" id="source-${source.id}">
    <p class="eyebrow">${source.type}</p>
    <h2>${source.title}</h2>
-   <p>${source.summary}</p>
    <p><cite>${source.citation}</cite></p>
    ${source.url ? `<p><a href="${source.url}">${source.linkTitle}</a></p>` : ''}
    <p>Related tabs · ${source.links.map(id => `<a href="#${id}">${byId[id].title}</a>`).join(' · ')}</p>
@@ -352,6 +544,32 @@ function renderSourceNotes(notes) {
   const source = references.find(entry => entry.id === id);
   return `<li>${idea} <a href="#research-background/${id}">${source.title}</a></li>`;
  }).join('')}</ul></section>`;
+}
+function renderTopicExtracts(extracts) {
+ return extracts.map(([title, summary, links = []]) => `
+  <section class="content-panel">
+   <h2>${title}</h2>
+   <p>${summary}</p>
+   ${links.length ? `<p>${links.map(([label, href]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>` : ''}
+  </section>`).join('');
+}
+
+async function loadSourceSlides(container, groups) {
+ try {
+  const batches = await Promise.all(groups.map(async group => {
+   const response = await fetch(`research-slides/${group}.json`);
+   if (!response.ok) throw new Error('Slides unavailable');
+   return response.json();
+  }));
+  container.innerHTML = batches.flat().map(slide => `
+   <figure class="source-slide">
+    <h3>${slide.title}</h3>
+    <img src="${slide.src}" width="${slide.width}" height="${slide.height}" loading="lazy" alt="${slide.title}">
+    <figcaption>${slide.credit}</figcaption>
+   </figure>`).join('');
+ } catch {
+  container.textContent = 'The source slides could not load. Reload this page to try again.';
+ }
 }
 function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/');id=id||'overview';if(!byId[id])id='overview';const p=byId[id];
  document.title=`${p.title} · SkillsQuest`;
@@ -370,6 +588,11 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
   main.innerHTML = `${header}<section class="content-panel"><h2>${draft.heading}</h2><p>${draft.lead}</p><ul>${draft.items.map(item => `<li>${item}</li>`).join('')}</ul>${sources}</section>`;
  }
  if(id==='purpose')main.insertAdjacentHTML('beforeend',`<section class="content-panel"><h2>What inspired SkillQuest</h2>${postFigure(originPost)}</section>`);
+ if(topicExtracts[id])main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts[id]));
+ if(slideGroups[id]) {
+  main.insertAdjacentHTML('beforeend','<section class="content-panel"><h2>Extracts from the source slides</h2><div id="source-slides">Loading source slides…</div></section>');
+  void loadSourceSlides(document.getElementById('source-slides'), slideGroups[id]);
+ }
  if(sourceNotes[id])main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes[id]));
  const idx=pages.indexOf(p);main.insertAdjacentHTML('beforeend',`<div class="page-bottom">${idx?`<a href="#${pages[idx-1].id}">← ${pages[idx-1].title}</a>`:''}${idx<pages.length-1?`<a class="next" href="#${pages[idx+1].id}">${pages[idx+1].title} →</a>`:''}</div>`);
  nav.classList.remove('open');menu.setAttribute('aria-expanded','false');if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if(id==='research-background' && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}

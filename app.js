@@ -534,10 +534,11 @@ const pageHref = id => '#' + id;
 const nav=document.querySelector('#navigation');
 let number=0;
 const expandedGroups = new Set();
+let groupNavigation = false;
 nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{
  const n=String(++number).padStart(2,'0');
  if(!p.children)return `<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>`;
- return `<div class="nav-group"><button class="submenu-toggle" type="button" data-group="${p.id}" aria-expanded="false" aria-controls="submenu-${p.id}"><span class="num">${n}</span><span>${p.title}</span><span class="chevron" aria-hidden="true">▸</span></button><div class="children" id="submenu-${p.id}" hidden style="display:none"><a href="#${p.id}" data-page="${p.id}">${p.title} overview</a>${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div></div>`;
+ return `<div class="nav-group"><button class="submenu-toggle" type="button" data-group="${p.id}" aria-expanded="false" aria-controls="submenu-${p.id}"><span class="num">${n}</span><span>${p.title}</span><span class="chevron" aria-hidden="true">▸</span></button><div class="children" id="submenu-${p.id}" hidden style="display:none">${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div></div>`;
 }).join('');
 function setGroupExpanded(id, open) {
  const button=nav.querySelector(`button[data-group="${id}"]`);
@@ -551,7 +552,7 @@ function setGroupExpanded(id, open) {
 }
 nav.addEventListener('click',event=>{
  const toggle=event.target.closest('.submenu-toggle');
- if(toggle){event.preventDefault();setGroupExpanded(toggle.dataset.group,!expandedGroups.has(toggle.dataset.group));}
+ if(toggle){event.preventDefault();const id=toggle.dataset.group;setGroupExpanded(id,!expandedGroups.has(id));if(location.hash==='#'+id){render(false);}else{groupNavigation=true;location.hash=id;}}
 });
 const menu=document.querySelector('#menu-toggle');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
@@ -735,8 +736,8 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  }
  if(sourceNotes[id])main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes[id]));
  const idx=pages.indexOf(p);if(!isWorld)main.insertAdjacentHTML('beforeend',`<div class="page-bottom">${idx?`<a href="#${pages[idx-1].id}">← ${pages[idx-1].title}</a>`:''}${idx<pages.length-1?`<a class="next" href="#${pages[idx+1].id}">${pages[idx+1].title} →</a>`:''}</div>`);
- nav.classList.remove('open');menu.setAttribute('aria-expanded','false');if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if(id==='research-background' && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}
+ if(focus){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if(id==='research-background' && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}
 }
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();document.querySelector('main').focus()});
-window.addEventListener('hashchange',()=>render(true));render();
+window.addEventListener('hashchange',()=>{const focus=!groupNavigation;groupNavigation=false;render(focus)});render();
 

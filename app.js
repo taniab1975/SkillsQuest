@@ -5,7 +5,7 @@ const pages = [
  {id:'secure-records',title:'Secure Records & Privacy',intro:'A discussion and evidence-preparation space for privacy, data integrity, security and trusted school use.'},
  {id:'how-it-will-work',title:'How it will work',intro:'A school-enrolled learning program: learn, record experiences, verify participation, reflect and demonstrate growth.'},
  {id:'learning-design',title:'Learning Design',intro:'How the choice of skills, self-efficacy, teaching approaches and transfer across contexts work together.',children:['skills-choice','efficacy-building','pedagogy','transferable-skills']},
- {id:'skills-choice',title:'Skills Choice',parent:'learning-design',intro:'Compare the options and choose the most appropriate skills framework. The prototype lab themes provide a starting point for the formal framework.'},
+ {id:'skills-choice',title:'Skills Choice',parent:'learning-design',intro:'Compare the options and choose the most appropriate skills framework. The recommended eight pilot labs are a starting point for discussion, not a final framework.'},
  {id:'efficacy-building',title:'Self-efficacy',parent:'learning-design',intro:'A starting point for thinking about self-efficacy, learner agency and confidence in career learning.',post:{path:'efficacy-building-post.svg',width:420,height:1182,alt:'Tania Byrnes’s post on learner self-efficacy and confidence. It discusses recognising unhelpful thinking, explicit teaching, supportive practice, flexible pathways and revisiting progress. The diagram connects self-efficacy, outcome expectations, goals, behaviour and contextual influences.'}},
  {id:'pedagogy',title:'Pedagogy',parent:'learning-design',intro:'Set out the learning principles that will guide the design of SkillsQuest.'},
  {id:'transferable-skills',title:'Transferable Skills',parent:'learning-design',intro:'Recognise the substantial capabilities learners already have, then identify what carries across, what needs adapting and what is genuinely new.',post:{path:'transferable-skills-post.svg',width:714,height:1344,alt:'Tania Byrnes’s post on transfer, illustrated with examples from bus driving, oral presentations and training. The post describes identifying common skills and gaps, reducing cognitive load during initial practice and using consistent teaching across contexts.'}},
@@ -42,9 +42,9 @@ const drafts = {
     items: ["Discuss what happened and how the same behaviour might help in a real setting.","Choose a meaningful experience and record it in My Portfolio using Situation, Task, Action and Result.","Use feedback to clarify your own contribution, then revisit earlier entries to see growth and decide what to try next."]
   },
   'skills-choice': {
-    heading: "The current prototype set",
-    lead: "The Skillsville lab themes are illustrative examples to show what is possible. Further work is needed to decide which skills to take forward and how they will be defined and developed.",
-    items: ["Communication and Collaboration cover clear exchanges, listening and working towards a shared outcome.","Initiative and Self-management cover noticing what needs doing, following through and organising time and effort.","Problem-solving and Adaptability cover investigating a problem, testing options and adjusting when conditions change.","Creativity and Leadership cover generating and improving ideas, inviting input and helping a group act."]
+    heading: "Recommendation: eight labs for a pilot",
+    lead: "Keep eight labs, but revise the labels and replace standalone Leadership with Learning to Learn. This is a research-informed design recommendation for discussion, not an agreed framework or an SCSA-approved list.",
+    items: ["Communication; Teamwork & Collaboration; Critical Thinking & Problem-solving; Initiative; Creativity & Innovation; Self-management & Organisation; Adaptability; Learning to Learn.","Eight keeps the prototype manageable while covering distinct learning purposes. Research does not prescribe this number. Pilot evidence and assessment design may justify combining or separating areas later.","Leadership remains visible through shared direction, inclusive teamwork and appropriate initiative. The seven non-Communication labs remain exterior previews: revised titles do not mean their activities have been developed."]
   },
   'pedagogy': {
     heading: "Learn, experiment and reflect",
@@ -752,25 +752,37 @@ function capabilityComparison() {
    if (match.startsWith('~')) return `<td class="capability-partial"><small>Partial</small>${match.slice(1)}</td>`;
    return `<td class="capability-match">${match}</td>`;
   }).join('');
-  const group = index === 0 ? 'Current prototype lab themes' : index === 8 ? 'Other capabilities to consider' : '';
-  return `${group ? `<tr class="capability-group"><th colspan="${capabilityModels.length+1}">${group}</th></tr>` : ''}<tr><th scope="row">${concept}</th>${cells}</tr>`;
+  const group = index === 0 ? 'Capability concepts and proposed placement' : '';
+  const placement = ['Communication','Teamwork & Collaboration','Initiative','Critical Thinking & Problem-solving','Adaptability','Self-management & Organisation','Creativity & Innovation','Embedded in Teamwork & Collaboration and Initiative','Critical Thinking & Problem-solving','Learning to Learn','Across Adaptability, Self-management and Learning to Learn; not a personality grade','Self-management & Organisation','Across all labs','Across all labs','Across all labs'][index];
+  return `${group ? `<tr class="capability-group"><th colspan="${capabilityModels.length+2}">${group}</th></tr>` : ''}<tr><th scope="row">${concept}</th><td>${placement}</td>${cells}</tr>`;
  }).join('');
  return `<section class="content-panel" id="capability-comparison">
-  <h2>Compare capability models</h2>
+  <h2>Recommended pilot labs and why</h2>
+  <p>The recommendation combines recurring capability concepts with the program’s purpose: recognising existing strengths, reflecting on experience and preparing for a new context. The source comparison below shows related concepts, not equivalent definitions or permission to reuse a framework.</p>
+  <table class="capability-table"><thead><tr><th>Recommended lab</th><th>Learning focus and reason</th></tr></thead><tbody>
+  <tr><th>Communication</th><td>Listen, clarify, explain and use feedback. A recurring foundation across the sources, with observable behaviours in different settings.</td></tr>
+  <tr><th>Teamwork &amp; Collaboration</th><td>Coordinate roles, include others and resolve disagreements. Names the shared work explicitly and includes collaborative leadership.</td></tr>
+  <tr><th>Critical Thinking &amp; Problem-solving</th><td>Check evidence and assumptions, compare options and test decisions. Broadens the old label beyond simply finding an answer.</td></tr>
+  <tr><th>Initiative</th><td>Notice opportunities and take appropriate action without waiting. Keep distinct from creativity: acting on a need is not the same as inventing an idea.</td></tr>
+  <tr><th>Creativity &amp; Innovation</th><td>Generate varied ideas, prototype and improve them. Makes development and application of ideas visible, not just originality.</td></tr>
+  <tr><th>Self-management &amp; Organisation</th><td>Plan, prioritise, manage time and follow through reliably. Makes organisation explicit rather than hiding it inside a broad personal quality.</td></tr>
+  <tr><th>Adaptability</th><td>Adjust approaches when conditions change, respond to feedback and seek support. Keep distinct from routine planning so context and change are taught deliberately.</td></tr>
+  <tr><th>Learning to Learn</th><td>Identify gaps, choose learning strategies, practise, reflect and apply learning in a new context. Replaces the standalone Leadership lab because it directly supports the program’s reflection and transfer process.</td></tr>
+  </tbody></table>
+  <h3>Why eight, rather than more?</h3><p>Eight is a practical pilot design choice, not a number established by research. Combining critical thinking with problem-solving and organisation with self-management avoids unnecessary extra labs. Keep leadership embedded and observable within teamwork and initiative, rather than treating it as a rank or personality trait.</p>
+  <p>Digital capability, ethical judgement and cultural awareness should be integral to every lab’s learning design, feedback and portfolio evidence, not optional extras or a ninth lab. Literacy and numeracy also run across the labs. This is a design proposal; these features are not yet implemented across the prototype. Self-efficacy is supported through meaningful practice and feedback, not graded as a personality characteristic. Students should describe the context, what they already bring and what they still need to learn.</p>
+  <ul><li><strong>Communication:</strong> consider privacy, audience and culturally different ways a message may be received.</li><li><strong>Critical Thinking &amp; Problem-solving:</strong> examine digital sources, bias and the consequences of decisions.</li><li><strong>Teamwork &amp; Collaboration:</strong> practise inclusion, respectful disagreement and equitable participation.</li><li><strong>Initiative:</strong> check permission, safety and impact before acting. Apply comparable prompts in the other labs and ask students to explain their judgement.</li></ul><p><a href="https://research.winchester.ac.uk/en/publications/learning-to-be-employable-practical-lessons-from-research-into-de-3/">Lucas and Hanson: Learning to Be Employable</a> supports attention to both transferable skills and habits of mind; it does not prescribe these eight titles. The <a href="https://www.dewr.gov.au/skills-information-training-providers/core-skills-work-developmental-framework">Core Skills for Work Developmental Framework</a> helps examine development and context, but is not itself an assessment tool. These inform the recommendation alongside the sources below.</p>
+  <h2>Compare capability models and recommended placement</h2>
   <p>Read across a row to compare the labels. A shaded cell shows an explicit match or close synonym. <strong>Partial</strong> marks a broader or related concept. A dash means the source has no separate match at the level compared here.</p>
   <p>Scroll across to see all six sources. Select a column heading to open its source.</p>
   <div class="capability-scroll" tabindex="0" role="region" aria-label="Scrollable capability comparison">
    <table class="capability-table">
-    <thead><tr><th scope="col">SkillQuest theme or candidate</th>${columns}</tr></thead>
+    <thead><tr><th scope="col">Capability concept</th><th scope="col">Recommended SkillsQuest placement</th>${columns}</tr></thead>
     <tbody>${body}</tbody>
    </table>
   </div>
-  <h3>Questions for the capability decision</h3>
-  <ul>
-   <li><strong>Separate or combine?</strong> Explore whether to keep Initiative and Adaptability separate, and whether to explicitly teach critical thinking within Problem-solving and Creativity.</li>
-   <li><strong>Where does learning to learn sit?</strong> Learner agency, reflection and planning appear in several sources. Decide whether to name them, include them within Self-management or teach them across the labs.</li>
-   <li><strong>Which capabilities run across the program?</strong> Consider how literacy, numeracy, digital literacy, ethical judgement and intercultural understanding would appear in lab tasks and portfolio evidence.</li>
-  </ul>
+  <h3>What the pilot needs to test</h3>
+  <ul><li>Can learners and educators distinguish the eight areas and recognise overlap without counting the same evidence twice?</li><li>Do tasks produce useful evidence of capability in a stated context, rather than broad claims of universal competence?</li><li>Do reflection and feedback help students recognise existing strengths, identify gaps and plan their next learning step?</li></ul>
   <p>This is a draft interpretation of the source labels and their scope. The Skills Builder column uses the version illustrated in the Harrisdale material. The Harrisdale and Rossmoyne school examples remain available in Research & Background rather than as separate comparison columns. The historical Australian Skills Classification and Sattler’s research synthesis are workforce references. Track the developing National Skills Taxonomy in the update below.</p>
  </section>`;
 }
@@ -872,4 +884,5 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
 }
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();document.querySelector('main').focus()});
 window.addEventListener('hashchange',()=>{const focus=!groupNavigation;groupNavigation=false;render(focus)});render();
+
 

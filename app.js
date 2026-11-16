@@ -2,6 +2,7 @@
 const pages = [
  {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'},
  {id:'overview',title:'Overview',intro:'SkillQuest is Tania’s personal project to develop an employability learning and portfolio program for Years 10–12. This hub brings together the playable Skillsville prototype and the plans for a proposed SCSA endorsed program.'},
+ {id:'research-background',title:'Research & Background',intro:'The research, school examples and earlier design work behind SkillQuest.'},
  {id:'purpose',title:'Purpose',intro:'Define what SkillsQuest is here to achieve, who it is for and the difference it should make.'},
  {id:'who-will-host',title:'Who will host',intro:'Explore who could host, own and support the program. No host has been confirmed.'},
  {id:'how-it-will-work',title:'How it will work',intro:'Map the learner journey and the practical arrangements that make it possible.'},
@@ -91,6 +92,230 @@ const drafts = {
     items: ["Build the application around a teaching scope and sequence, sample activities, annotated fictional evidence, draft completion criteria and a moderation plan.","Use a pilot to gather learning-time estimates, evidence quality and feedback on teaching, learner experience and accessibility.","Open decisions include the applicant, route, delivery model, approved framework and completion standard. Endorsement, hours and unit equivalence are unconfirmed."]
   }
 };
+const references = [
+  {
+    "id": "halsall",
+    "title": "Work Capabilities literature review",
+    "type": "WA Department of Education research and guidance",
+    "citation": "Dr Lucy Halsall. Supplied excerpt in Work Capabilities, 7 February 2023, pp. 1–8. The presentation also credits Janet Silburn Barker.",
+    "summary": "The Department material situates work capabilities across terminology and frameworks and makes the case for explicit teaching, a shared vocabulary, self-assessment and career planning. The supplied presentation excerpt is the source for this entry.",
+    "links": [
+      "skills-choice",
+      "pedagogy",
+      "reflection-tool"
+    ],
+    "url": "https://myresources.education.wa.edu.au/programs/career-learning-toolkit/work-capabilities",
+    "linkTitle": "WA Career Learning Toolkit"
+  },
+  {
+    "id": "rossmoyne",
+    "title": "Rossmoyne SHS illustration of practice",
+    "type": "School practice",
+    "citation": "Janet Silburn Barker, Rossmoyne SHS section of Work Capabilities, 7 February 2023, pp. 9–39.",
+    "summary": "The school defined capabilities, developed shared teaching resources and used teacher-led workshops and a web app to share exemplars. Its implementation sequence offers ideas for teacher support and building consistency during a SkillQuest pilot.",
+    "links": [
+      "pedagogy",
+      "teacher-view",
+      "scsa-application"
+    ]
+  },
+  {
+    "id": "harrisdale",
+    "title": "Harrisdale Entrepreneurship and Capabilities",
+    "type": "School practice",
+    "citation": "Embedding Capabilities into the Entrepreneurship and Innovation Elective, pp. 4, 16, 23 and 30.",
+    "summary": "The Years 9–10 elective mapped work capabilities to stages of design thinking and used practical projects, reflection and e-portfolios. Its initial focus was creativity, problem solving, interpersonal skills and communication, and teamwork and collaboration.",
+    "links": [
+      "skills-choice",
+      "skills-labs",
+      "pedagogy"
+    ]
+  },
+  {
+    "id": "tkc",
+    "title": "TKC Thoughts",
+    "type": "Earlier project thinking",
+    "citation": "TKC Thoughts [Auto-saved], slides 13–16 and 21–32.",
+    "summary": "The deck asks how transferable capabilities could be learned, assessed and showcased across pathways. It explores the Big Picture learner profile, learner voice and evidence links, and sketches a school-specific activity-to-capability map with a Situation, Action, Outcome field.",
+    "links": [
+      "purpose",
+      "skills-choice",
+      "portfolio-view",
+      "evidence-of-learning"
+    ]
+  },
+  {
+    "id": "kolb",
+    "title": "Kolbe and reporting",
+    "type": "Earlier project thinking",
+    "citation": "Kolbe and reporting, slides 1, 4–5.",
+    "summary": "The deck compares portfolios, passports and profiles. Its reflection diagram shows David Kolb’s four-stage experiential learning cycle. The slide pairs capability-building tasks with SAOs, reflection and goal setting.",
+    "links": [
+      "pedagogy",
+      "reflection-tool",
+      "portfolio-view"
+    ]
+  },
+  {
+    "id": "matching",
+    "title": "Matching Not Ranking",
+    "type": "Earlier careers and portfolio thinking",
+    "citation": "Matching Not Ranking 2, opening slide and the learner profile and e-portfolio sections.",
+    "summary": "This presentation connects a learner’s interests, goals, capabilities and aspirations to possible occupations or courses. The portfolio implication is to help a learner find examples that fit a future opportunity and explain why it interests them.",
+    "links": [
+      "purpose",
+      "portfolio-view",
+      "portfolio-entry"
+    ],
+    "url": "https://education.unimelb.edu.au/melbourne-metrics/our-research/matching-for-success/research",
+    "linkTitle": "Related Melbourne Metrics research"
+  },
+  {
+    "id": "pathways",
+    "title": "Pathways to Post-School Success Expert Panel Report",
+    "type": "WA policy background",
+    "citation": "WA Expert Panel, final report, 2024, pp. 47–48, recommendations 26–27.",
+    "summary": "The panel recommended investigating learner profiles over time and exploring how complex competencies could be taught, assessed and certified through course content. These are panel recommendations and provide policy context for the proposal. Current endorsement guidance sits on the SCSA requirements tab.",
+    "links": [
+      "purpose",
+      "portfolio-view",
+      "assessment",
+      "scsa-requirements"
+    ],
+    "url": "https://www.education.wa.edu.au/dl/l46qpd2x",
+    "linkTitle": "Read the final report"
+  }
+];
+const sourceNotes = {
+  "purpose": [
+    [
+      "matching",
+      "Use portfolio examples to connect students’ capabilities, interests and aspirations with possible pathways as their plans evolve."
+    ],
+    [
+      "pathways",
+      "The panel’s learner profile discussion gives historical context for recording learning across settings."
+    ],
+    [
+      "tkc",
+      "An earlier design question still applies. What can a learner show about a transferable capability across school, work and community experiences?"
+    ]
+  ],
+  "skills-choice": [
+    [
+      "halsall",
+      "Compare the vocabulary and intended uses of different frameworks before setting the program’s capability names."
+    ],
+    [
+      "harrisdale",
+      "Use the elective’s four initial areas to compare coverage and overlap with the eight prototype themes."
+    ],
+    [
+      "tkc",
+      "Test the sets against real activities. Compare observable behaviours, where learners can practise them and what evidence they could collect. Formal selection is open."
+    ]
+  ],
+  "pedagogy": [
+    [
+      "kolb",
+      "Build a cycle into lab activities. Have an experience, reflect on what happened, draw a conclusion and test a revised approach."
+    ],
+    [
+      "harrisdale",
+      "Use short, enjoyable projects to practise several capabilities together. Debrief the choices and what changed."
+    ],
+    [
+      "rossmoyne",
+      "Support consistent teaching with shared definitions, model lessons and teacher-led discussion."
+    ]
+  ],
+  "skills-labs": [
+    [
+      "harrisdale",
+      "A design challenge could make learners use more than one capability. Scope a clear opportunity to practise and revisit each target behaviour."
+    ]
+  ],
+  "portfolio-entry": [
+    [
+      "tkc",
+      "The earlier activity map links a real experience to capability behaviours and captures a Situation, Action and Outcome."
+    ],
+    [
+      "matching",
+      "Add an optional prompt about what made this experience interesting and which future roles or settings it might connect to."
+    ]
+  ],
+  "portfolio-view": [
+    [
+      "tkc",
+      "Explore a future learner profile with a learner-authored introduction, selected evidence, real experiences and achievements."
+    ],
+    [
+      "kolb",
+      "The portfolio collects work and reflections. A passport could collect verified credentials, and a profile could summarise selected evidence for an audience."
+    ],
+    [
+      "matching",
+      "Let learners choose examples for a pathway conversation, review their interests and update what they want to explore."
+    ],
+    [
+      "pathways",
+      "Recommendation 26 provides context for exploring learner profiles as a longer-term idea."
+    ]
+  ],
+  "teacher-view": [
+    [
+      "rossmoyne",
+      "A shared set of fictional examples and review prompts could help teachers compare judgements in a pilot."
+    ]
+  ],
+  "assessment": [
+    [
+      "pathways",
+      "Recommendation 27 proposes investigating assessment of complex competencies through course content. SkillQuest’s own completion and moderation approach remains in development."
+    ],
+    [
+      "tkc",
+      "Use observable behaviours, sample evidence and shared teacher judgements to test draft criteria."
+    ]
+  ],
+  "reflection-tool": [
+    [
+      "tkc",
+      "SAO is Situation, Action, Outcome. STAR adds an explicit Task field for responsibility or the goal. Compare the two using the same fictional experience."
+    ],
+    [
+      "kolb",
+      "Kolb’s cycle helps a learner use the experience to plan their next attempt. Add prompts such as ‘What did this teach you?’ and ‘What will you try next?’ alongside the account of what happened."
+    ],
+    [
+      "halsall",
+      "Use shared capability language so learners can identify what they did, self-assess and describe their progress to others."
+    ]
+  ],
+  "evidence-of-learning": [
+    [
+      "tkc",
+      "Use the activity map to find opportunities for evidence. Assess the described actions and supporting examples against a behaviour or outcome."
+    ],
+    [
+      "kolb",
+      "The reporting deck’s three forms of recognition suggest distinct purposes for collected work, credentials and a learner summary."
+    ]
+  ],
+  "scsa-requirements": [
+    [
+      "pathways",
+      "The Expert Panel report is historical policy context. Consult current SCSA guidance for the application requirements."
+    ]
+  ],
+  "scsa-application": [
+    [
+      "rossmoyne",
+      "Use teacher exemplars and shared discussion to prepare for the pilot and learn where the review criteria need clarification."
+    ]
+  ]
+};
 const byId = Object.fromEntries(pages.map(p=>[p.id,p]));
 const nav=document.querySelector('#navigation');
 let number=0;
@@ -98,22 +323,41 @@ nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{const n=String(++number).padSta
 const menu=document.querySelector('#menu-toggle');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
 function cards(ids){return `<div class="grid">${ids.map(id=>{const p=byId[id];return `<a class="card" href="#${id}"><div class="card-top"><span class="arrow" aria-hidden="true">↗</span></div><h3>${p.title}</h3><p>${p.intro}</p></a>`}).join('')}</div>`}
-function render(focus=false){let id=location.hash.slice(1)||'overview';if(!byId[id])id='overview';const p=byId[id];
+function researchLibrary() {
+ return references.map(source => `
+  <section class="content-panel" id="source-${source.id}">
+   <p class="eyebrow">${source.type}</p>
+   <h2>${source.title}</h2>
+   <p>${source.summary}</p>
+   <p><cite>${source.citation}</cite></p>
+   ${source.url ? `<p><a href="${source.url}">${source.linkTitle}</a></p>` : ''}
+   <p>Related tabs · ${source.links.map(id => `<a href="#${id}">${byId[id].title}</a>`).join(' · ')}</p>
+  </section>`).join('');
+}
+function renderSourceNotes(notes) {
+ return `<section class="content-panel"><h2>Ideas from the sources</h2><ul>${notes.map(([id, idea]) => {
+  const source = references.find(entry => entry.id === id);
+  return `<li>${idea} <a href="#research-background/${id}">${source.title}</a></li>`;
+ }).join('')}</ul></section>`;
+}
+function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/');id=id||'overview';if(!byId[id])id='overview';const p=byId[id];
  document.title=`${p.title} · SkillsQuest`;
  document.querySelector('#breadcrumb').textContent=p.parent?`${byId[p.parent].title} / ${p.title}`:p.title;
  nav.querySelectorAll('a').forEach(a=>{if(a.dataset.page===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  const main=document.querySelector('main');
  const header=`<p class="eyebrow">${p.parent?byId[p.parent].title:'Personal project · Endorsed program'}</p><h1 id="page-title">${id==='overview'?'SkillQuest':p.title}</h1><p class="lead">${p.intro}</p>`;
  if(id==='existing-prototype')main.innerHTML=`${header}<p><a href="skillsquest-prototype.html" target="_blank" rel="noopener">Open prototype and portfolio in a full window ↗</a></p><iframe title="SkillsQuest prototype and capabilities portfolio" src="skillsquest-prototype.html" style="width:100%;height:850px;border:1px solid #dce2d5;border-radius:18px" allowfullscreen></iframe>`;
- else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['existing-prototype','purpose','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;
+ else if(id==='research-background')main.innerHTML=`${header}${researchLibrary()}`;
+ else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['existing-prototype','research-background','purpose','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;
  else if(p.children)main.innerHTML=`${header}<div class="section-bar"><h2>Explore this part of the program</h2><span>${p.children.length} connected sections</span></div>${cards(p.children)}`;
  else {
   const draft = drafts[id];
   const sources = id === 'scsa-requirements' ? `<p><a href="https://senior-secondary.scsa.wa.edu.au/vet/endorsed-programs">SCSA endorsed program guidance and application forms</a></p>` : '';
   main.innerHTML = `${header}<section class="content-panel"><h2>${draft.heading}</h2><p>${draft.lead}</p><ul>${draft.items.map(item => `<li>${item}</li>`).join('')}</ul>${sources}</section>`;
  }
+ if(sourceNotes[id])main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes[id]));
  const idx=pages.indexOf(p);main.insertAdjacentHTML('beforeend',`<div class="page-bottom">${idx?`<a href="#${pages[idx-1].id}">← ${pages[idx-1].title}</a>`:''}${idx<pages.length-1?`<a class="next" href="#${pages[idx+1].id}">${pages[idx+1].title} →</a>`:''}</div>`);
- nav.classList.remove('open');menu.setAttribute('aria-expanded','false');if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}
+ nav.classList.remove('open');menu.setAttribute('aria-expanded','false');if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if(id==='research-background' && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}
 }
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();document.querySelector('main').focus()});
 window.addEventListener('hashchange',()=>render(true));render();

@@ -1,7 +1,6 @@
 'use strict';
 const pages = [
  {id:'overview',title:'Overview',intro:'SkillsQuest is a proposed Provider Endorsed Program with the School Curriculum and Standards Authority (SCSA).'},
- {id:'purpose',title:'Purpose',intro:'Define what SkillsQuest is here to achieve, who it is for and the difference it should make.'},
  {id:'who-will-host',title:'Who will host',intro:'Explore who could host, own and support the program. No host has been confirmed.'},
  {id:'how-it-will-work',title:'How it will work',intro:'Map the learner journey and the practical arrangements that make it possible.'},
  {id:'transferable-skills',title:'Transferable Skills',intro:'A placeholder for Tania’s work on how skills carry across tasks, subjects and work settings.',post:{path:'transferable-skills-post.svg',width:714,height:1344,alt:'Tania Byrnes’s post on transfer, illustrated with examples from bus driving, oral presentations and training. The post describes identifying common skills and gaps, reducing cognitive load during initial practice and using consistent teaching across contexts.'}},
@@ -24,7 +23,7 @@ const pages = [
  {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'}
 ];
 const drafts = {
-  'purpose': {
+  'program-foundations': {
     heading: "Program purpose",
     lead: "SkillQuest helps Years 10–12 learners recognise employability capabilities in everyday life, practise them in Skillsville and explain how they used them in real experiences.",
     items: ["Describe a capability and recognise observable behaviours in context.","Try different approaches, use feedback and explain what changed.","Use specific examples to explain your contribution, what you learned and what you might try next.","Revisit experiences across school, work, home, volunteering and community life to notice interests, enjoyment and possible futures."]
@@ -148,7 +147,7 @@ const references = [
     "type": "Earlier project thinking",
     "citation": "TKC Thoughts [Auto-saved], slides 13–16 and 21–32.",
     "links": [
-      "purpose",
+      "overview",
       "skills-choice",
       "portfolio-view",
       "evidence-of-learning"
@@ -171,7 +170,7 @@ const references = [
     "type": "Earlier careers and portfolio thinking",
     "citation": "Matching Not Ranking 2, opening slide and the learner profile and e-portfolio sections.",
     "links": [
-      "purpose",
+      "overview",
       "portfolio-view",
       "portfolio-entry"
     ],
@@ -184,7 +183,7 @@ const references = [
     "type": "WA policy background",
     "citation": "WA Expert Panel, final report, 2024, pp. 47–48, recommendations 26–27.",
     "links": [
-      "purpose",
+      "overview",
       "portfolio-view",
       "assessment",
       "scsa-requirements"
@@ -194,7 +193,7 @@ const references = [
   }
 ];
 const sourceNotes = {
-  "purpose": [
+  "research-background": [
     [
       "matching",
       "Use portfolio examples to connect students’ capabilities, interests and aspirations with possible pathways as their plans evolve."
@@ -404,7 +403,7 @@ const topicExtracts = {
       ]
     ]
   ],
-  "purpose": [
+  "research-background": [
     [
       "Pathways and broader recognition",
       "Matching Not Ranking asks how strengths, interests and aspirations can help learners find a suitable course or occupation. The WA Expert Panel’s final report places broader recognition in the context of school engagement, different pathways and preparation for life beyond school. Its recommendations 26 and 27 investigate learner profiles and complex competencies.",
@@ -669,7 +668,7 @@ async function loadSourceSlides(container, groups) {
   container.textContent = 'The source slides could not load. Reload this page to try again.';
  }
 }
-function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/');id=id||'overview';if(!byId[id])id='overview';const p=byId[id];
+function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/');id=id||'overview';if(id==='purpose')id='research-background';if(!byId[id])id='overview';const p=byId[id];
  document.title=`${p.title} · SkillsQuest`;
  document.querySelector('#breadcrumb').textContent=p.parent?`${byId[p.parent].title} / ${p.title}`:p.title;
  nav.querySelectorAll('a').forEach(a=>{if(a.dataset.page===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
@@ -681,15 +680,14 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  if(id==='existing-prototype')main.innerHTML=`${header}<p><a href="skillsquest-prototype.html" target="_blank" rel="noopener">Open prototype and portfolio in a full window ↗</a></p><p><a href="#skillsville-world">Play the full SkillQuest game</a> · <a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p><iframe title="SkillsQuest prototype and capabilities portfolio" src="skillsquest-prototype.html" style="width:100%;height:850px;border:1px solid #dce2d5;border-radius:18px" allowfullscreen></iframe>`;
  else if(p.href)main.innerHTML=`<iframe class="world-frame" title="Skillsville prototype world" src="${p.href}" allow="fullscreen" allowfullscreen></iframe>`;
  else if(p.post)main.innerHTML=`${header}${postFigure(p.post)}`;
- else if(id==='research-background')main.innerHTML=`${header}${researchLibrary()}`;
- else if(id==='overview')main.innerHTML=`<p class="eyebrow">Proposed Provider Endorsed Program</p><h1 id="page-title">SkillsQuest</h1><p class="lead">${p.intro}</p><section class="content-panel"><h2>Three key ways learners develop</h2><p>SkillsQuest is a program of learning that enables learners to:</p><ol><li><strong>Build confidence, self-efficacy and a positive sense of identity.</strong> Recognise the value of their life experiences and articulate the highly valued employability skills they have developed.</li><li><strong>Connect their skills and experiences to opportunities.</strong> Learn to contextualise their skills and experiences to selection criteria, while identifying skills gaps and areas for improvement.</li><li><strong>Understand employability skills.</strong> Learn about the key components of employability skills and what they look like in practice.</li></ol></section><section class="content-panel" style="margin-top:24px"><h2>Two ways students progress</h2><ol><li><strong>Skills learning and exercises.</strong> Develop knowledge and understanding of employability skills, the dimensions of competence and the Dreyfus Model of Skill Acquisition.</li><li><strong>Self-evaluation, reflection and portfolio building.</strong> Map their own experiences against established employability skills, evaluate what they have learned and build a portfolio that makes their development visible.</li></ol></section><section class="content-panel" style="margin-top:24px"><h2>Recording experiences and working towards WACE</h2><p>Students will log their experiences as part of the program. Subject to SCSA approval and the unit equivalence granted, successful completion may contribute unit equivalents towards the Western Australian Certificate of Education (WACE), including its C-grade requirement.</p><p><strong>SkillsQuest is not yet SCSA endorsed.</strong></p></section>`;
+ else if(id==='research-background')main.innerHTML=`${header}<section class="content-panel"><h2>What inspired SkillsQuest</h2>${postFigure(originPost)}</section><section class="content-panel"><h2>Earlier program design principles</h2><p>${drafts['program-foundations'].lead}</p><ul>${drafts['program-foundations'].items.map(item=>`<li>${item}</li>`).join('')}</ul></section>${researchLibrary()}`;
+ else if(id==='overview')main.innerHTML=`<p class="eyebrow">Proposed Provider Endorsed Program</p><h1 id="page-title">SkillsQuest</h1><p class="lead">${p.intro}</p><section class="content-panel"><h2>Three key ways learners develop</h2><p>SkillsQuest is a program of learning that enables learners to:</p><ol><li><strong>Build confidence, self-efficacy and a positive sense of identity.</strong> Recognise the value of their life experiences and articulate the highly valued employability skills they have developed.</li><li><strong>Connect their skills and experiences to opportunities.</strong> Learn to contextualise their skills and experiences to selection criteria, while identifying skills gaps and areas for improvement.</li><li><strong>Understand employability skills.</strong> Learn about the key components of employability skills and what they look like in practice.</li></ol></section><section class="content-panel" style="margin-top:24px"><h2>Two ways students progress</h2><ol><li><strong>Skills learning and exercises.</strong> Develop knowledge and understanding of employability skills, the dimensions of competence and the Dreyfus Model of Skill Acquisition.</li><li><strong>Self-evaluation, reflection and portfolio building.</strong> Map their own experiences against established employability skills, evaluate what they have learned and build a portfolio that makes their development visible. Experiences can come from school, work, home, volunteering and community life, helping learners recognise their interests and possible future pathways.</li></ol></section><section class="content-panel" style="margin-top:24px"><h2>Recording experiences and working towards WACE</h2><p>Students will log their experiences as part of the program. Subject to SCSA approval and the unit equivalence granted, successful completion may contribute unit equivalents towards the Western Australian Certificate of Education (WACE), including its C-grade requirement.</p><p><strong>SkillsQuest is not yet SCSA endorsed.</strong></p></section>`;
  else if(p.children)main.innerHTML=`${header}<div class="section-bar"><h2>Explore this part of the program</h2><span>${p.children.length} connected sections</span></div>${cards(p.children)}`;
  else {
   const draft = drafts[id];
   const sources = id === 'scsa-requirements' ? `<p><a href="https://senior-secondary.scsa.wa.edu.au/vet/endorsed-programs">SCSA endorsed program guidance and application forms</a></p>` : '';
   main.innerHTML = `${header}<section class="content-panel"><h2>${draft.heading}</h2><p>${draft.lead}</p><ul>${draft.items.map(item => `<li>${item}</li>`).join('')}</ul>${sources}</section>`;
  }
- if(id==='purpose')main.insertAdjacentHTML('beforeend',`<section class="content-panel"><h2>What inspired SkillQuest</h2>${postFigure(originPost)}</section>`);
  if(id==='skills-choice')main.insertAdjacentHTML('beforeend',capabilityComparison());
  if(topicExtracts[id])main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts[id]));
  if(slideGroups[id]) {

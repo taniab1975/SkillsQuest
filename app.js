@@ -214,7 +214,7 @@ const sourceNotes = {
       "An earlier design question still applies. What can a learner show about a transferable capability across school, work and community experiences?"
     ]
   ],
-  "skills-choice": [
+  "research-frameworks": [
     [
       "halsall",
       "Compare the vocabulary and intended uses of different frameworks before setting the program’s capability names."
@@ -330,7 +330,7 @@ const sourceNotes = {
   ]
 };
 const topicExtracts = {
-  "skills-choice": [
+  "research-frameworks": [
     [
       "Capabilities in context",
       "Bill Lucas’s 2018 Mitchell Institute snapshot traces how education systems have described capabilities over time and compares 15 international frameworks. Pages 2–5 include examples such as Habits of Mind, the International Baccalaureate learner profile, New Pedagogies for Deep Learning and UNESCO’s transversal competencies. For SkillQuest, it is a useful check on whether a proposed set gives enough attention to reflection, learning dispositions and citizenship alongside work skills.",
@@ -487,11 +487,11 @@ const topicExtracts = {
   "scsa-requirements": [
     [
       "Curriculum changes and endorsement",
-      "The SCSA syllabus and General Capabilities updates sit in Skills Choice for comparison with the proposed outcomes. The Expert Panel’s recommendations about learner profiles and complex competencies sit in Purpose and Assessment as policy background.",
+      "The SCSA syllabus and General Capabilities updates sit in Skills Frameworks for comparison with the proposed outcomes. The Expert Panel’s recommendations about learner profiles and complex competencies sit in Portfolios & Pathways and Assessment as policy background.",
       [
         [
-          "SCSA updates on Skills Choice",
-          "#skills-choice"
+          "SCSA updates in Skills Frameworks",
+          "#research-frameworks"
         ],
         [
           "Expert Panel final report",
@@ -502,7 +502,7 @@ const topicExtracts = {
   ]
 };
 const slideGroups = {
-  "skills-choice": [
+  "research-frameworks": [
     "skills-choice-a",
     "skills-choice-b"
   ],
@@ -564,8 +564,8 @@ menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')
 function cards(ids){return `<div class="grid">${ids.map(id=>{const p=byId[id];return `<a class="card" href="${pageHref(id)}"><div class="card-top"><span class="arrow" aria-hidden="true">↗</span></div><h3>${p.title}</h3><p>${p.intro}</p></a>`}).join('')}</div>`}
 const researchThemes = {
  'research-origins':['tkc'],
- 'research-frameworks':['halsall'],
- 'research-practice':['rossmoyne','harrisdale','kolb'],
+ 'research-frameworks':['halsall','rossmoyne'],
+ 'research-practice':['harrisdale','kolb'],
  'research-pathways':['matching','pathways']
 };
 const sourceTheme = Object.fromEntries(Object.entries(researchThemes).flatMap(([theme,ids])=>ids.map(id=>[id,theme])));
@@ -886,7 +886,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  if(id==='pedagogy')main.insertAdjacentHTML('beforeend',`<section class="content-panel" id="keep-it-simple"><h2>Keep the student experience simple</h2><p><strong>The agreed design principle is to help students recognise and explain their strengths, without making the process unnecessarily complicated.</strong> Start with three everyday questions:</p><ol><li>What did you do?</li><li>What skills did you use?</li><li>Where else might those skills be useful, and what do you still need to learn?</li></ol><p>Previous experience is a valuable starting point, even when the next context is different. Help students identify what carries across, what needs adapting and what is new.</p><p><strong>The theory supports the teaching, not the other way around.</strong> Dreyfus’s model and the dimensions of competence can inform activity design, teacher prompts and feedback behind the scenes. Students do not need to use those labels or receive grades against those models as part of this design principle. Any formal completion criteria still need to be developed separately.</p><p>The eight lab themes are a proposal to test, not a compulsory or final framework. Keep, combine or change them according to how well they support learning.</p><p><strong>The practical test:</strong> does this help students recognise and explain their strengths, see where those strengths may be useful and identify a manageable next step?</p></section>`);
  if(id==='how-it-will-work')main.insertAdjacentHTML('beforeend','<section class="content-panel"><h2>Secure records and school trust</h2><p>How records are protected and maintained is part of the design, not an assumption. See <a href="#secure-records">Secure Records &amp; Privacy</a> for the proposed controls, official guidance and evidence still to prepare.</p></section>');
  if(['how-it-will-work','portfolio-view','teacher-view','provider-view'].includes(id))main.insertAdjacentHTML('beforeend',`<section class="content-panel"><h2>Learning record & verification mockup</h2><p>Explore an original SkillsQuest concept: employability skill sections, game-recorded time, external verification and a separate portfolio review. Fictional data only; no records are sent or saved.</p><p><a href="learning-record.html" target="_blank" rel="noopener">Open the interactive mockup in a full window ↗</a></p><iframe src="learning-record.html" title="SkillsQuest learning record and verification mockup" style="width:100%;height:950px;border:1px solid #dce2d5;border-radius:16px" loading="lazy"></iframe></section>`);
- if(id==='skills-choice')main.insertAdjacentHTML('beforeend',capabilityComparison());
+ if(id==='skills-choice'){main.insertAdjacentHTML('beforeend',capabilityComparison());main.insertAdjacentHTML('beforeend','<section class="content-panel"><h2>Research behind these choices</h2><p>The Bill Lucas and Lucy Sattler papers, Rossmoyne research collation, Australian taxonomy and SCSA curriculum references, and comparison slides are grouped in <a href="#research-frameworks">Research &amp; Background → Skills Frameworks</a>.</p></section>');}
  if(id==='research-pathways'){main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts['research-background']));main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes['research-background']));}
  if(topicExtracts[id]&&id!=='research-background')main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts[id]));
  if(slideGroups[id]) {

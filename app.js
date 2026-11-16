@@ -535,9 +535,8 @@ let number=0;
 const expandedGroups = new Set();
 nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{
  const n=String(++number).padStart(2,'0');
- const link=`<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>`;
- if(!p.children)return link;
- return `<div class="nav-group"><div class="nav-group-heading">${link}<button class="submenu-toggle" type="button" data-group="${p.id}" aria-expanded="false" aria-controls="submenu-${p.id}" aria-label="Expand ${p.title} submenu"><span aria-hidden="true">▸</span></button></div><div class="children" id="submenu-${p.id}" hidden>${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div></div>`;
+ if(!p.children)return `<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>`;
+ return `<div class="nav-group"><button class="submenu-toggle" type="button" data-group="${p.id}" aria-expanded="false" aria-controls="submenu-${p.id}"><span class="num">${n}</span><span>${p.title}</span><span class="chevron" aria-hidden="true">▸</span></button><div class="children" id="submenu-${p.id}" hidden style="display:none"><a href="#${p.id}" data-page="${p.id}">${p.title} overview</a>${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div></div>`;
 }).join('');
 function setGroupExpanded(id, open) {
  const button=nav.querySelector(`button[data-group="${id}"]`);
@@ -545,15 +544,13 @@ function setGroupExpanded(id, open) {
  if(!button||!children)return;
  if(open)expandedGroups.add(id);else expandedGroups.delete(id);
  button.setAttribute('aria-expanded',String(open));
- button.setAttribute('aria-label',`${open?'Collapse':'Expand'} ${byId[id].title} submenu`);
- button.querySelector('span').textContent=open?'▾':'▸';
+ button.querySelector('.chevron').textContent=open?'▾':'▸';
  children.hidden=!open;
+ children.style.display=open?'grid':'none';
 }
 nav.addEventListener('click',event=>{
  const toggle=event.target.closest('.submenu-toggle');
- if(toggle){setGroupExpanded(toggle.dataset.group,!expandedGroups.has(toggle.dataset.group));return;}
- const link=event.target.closest('a[data-page]');
- if(link&&byId[link.dataset.page]?.children)setGroupExpanded(link.dataset.page,true);
+ if(toggle){event.preventDefault();setGroupExpanded(toggle.dataset.group,!expandedGroups.has(toggle.dataset.group));}
 });
 const menu=document.querySelector('#menu-toggle');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});

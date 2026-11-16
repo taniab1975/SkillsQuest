@@ -529,7 +529,7 @@ const slideGroups = {
   ]
 };
 const byId = Object.fromEntries(pages.map(p=>[p.id,p]));
-const pageHref = id => byId[id].href || '#' + id;
+const pageHref = id => '#' + id;
 const nav=document.querySelector('#navigation');
 let number=0;
 nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{const n=String(++number).padStart(2,'0');return `<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>${p.children?`<div class="children">${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div>`:''}`}).join('');
@@ -675,8 +675,8 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  nav.querySelectorAll('a').forEach(a=>{if(a.dataset.page===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  const main=document.querySelector('main');
  const header=`<p class="eyebrow">${p.parent?byId[p.parent].title:'Personal project · Endorsed program'}</p><h1 id="page-title">${id==='overview'?'SkillQuest':p.title}</h1><p class="lead">${p.intro}</p>`;
- if(id==='existing-prototype')main.innerHTML=`${header}<p><a href="skillsquest-prototype.html" target="_blank" rel="noopener">Open prototype and portfolio in a full window ↗</a></p><p><a href="skillsville/">Play the full SkillQuest game</a> · <a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p><iframe title="SkillsQuest prototype and capabilities portfolio" src="skillsquest-prototype.html" style="width:100%;height:850px;border:1px solid #dce2d5;border-radius:18px" allowfullscreen></iframe>`;
- else if(p.href)main.innerHTML=`${header}<p><a href="${p.href}">Play Skillsville full screen</a></p>`;
+ if(id==='existing-prototype')main.innerHTML=`${header}<p><a href="skillsquest-prototype.html" target="_blank" rel="noopener">Open prototype and portfolio in a full window ↗</a></p><p><a href="#skillsville-world">Play the full SkillQuest game</a> · <a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p><iframe title="SkillsQuest prototype and capabilities portfolio" src="skillsquest-prototype.html" style="width:100%;height:850px;border:1px solid #dce2d5;border-radius:18px" allowfullscreen></iframe>`;
+ else if(p.href)main.innerHTML=`${header}<p><a href="${p.href}" target="_blank" rel="noopener">Open Skillsville in a full window ↗</a></p><iframe class="world-frame" title="Skillsville prototype world" src="${p.href}" allow="fullscreen" allowfullscreen></iframe>`;
  else if(p.post)main.innerHTML=`${header}${postFigure(p.post)}`;
  else if(id==='research-background')main.innerHTML=`${header}${researchLibrary()}`;
  else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['research-background','purpose','transferable-skills','efficacy-building','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;

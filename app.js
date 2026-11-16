@@ -532,7 +532,29 @@ const byId = Object.fromEntries(pages.map(p=>[p.id,p]));
 const pageHref = id => '#' + id;
 const nav=document.querySelector('#navigation');
 let number=0;
-nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{const n=String(++number).padStart(2,'0');return `<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>${p.children?`<div class="children">${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div>`:''}`}).join('');
+const expandedGroups = new Set();
+nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{
+ const n=String(++number).padStart(2,'0');
+ const link=`<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>`;
+ if(!p.children)return link;
+ return `<div class="nav-group"><div class="nav-group-heading">${link}<button class="submenu-toggle" type="button" data-group="${p.id}" aria-expanded="false" aria-controls="submenu-${p.id}" aria-label="Expand ${p.title} submenu"><span aria-hidden="true">▸</span></button></div><div class="children" id="submenu-${p.id}" hidden>${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div></div>`;
+}).join('');
+function setGroupExpanded(id, open) {
+ const button=nav.querySelector(`button[data-group="${id}"]`);
+ const children=document.getElementById(`submenu-${id}`);
+ if(!button||!children)return;
+ if(open)expandedGroups.add(id);else expandedGroups.delete(id);
+ button.setAttribute('aria-expanded',String(open));
+ button.setAttribute('aria-label',`${open?'Collapse':'Expand'} ${byId[id].title} submenu`);
+ button.querySelector('span').textContent=open?'▾':'▸';
+ children.hidden=!open;
+}
+nav.addEventListener('click',event=>{
+ const toggle=event.target.closest('.submenu-toggle');
+ if(toggle){setGroupExpanded(toggle.dataset.group,!expandedGroups.has(toggle.dataset.group));return;}
+ const link=event.target.closest('a[data-page]');
+ if(link&&byId[link.dataset.page]?.children)setGroupExpanded(link.dataset.page,true);
+});
 const menu=document.querySelector('#menu-toggle');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
 function cards(ids){return `<div class="grid">${ids.map(id=>{const p=byId[id];return `<a class="card" href="${pageHref(id)}"><div class="card-top"><span class="arrow" aria-hidden="true">↗</span></div><h3>${p.title}</h3><p>${p.intro}</p></a>`}).join('')}</div>`}

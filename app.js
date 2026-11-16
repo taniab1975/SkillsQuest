@@ -23,7 +23,11 @@ const pages = [
  {id:'scsa-requirements',title:'SCSA Requirements',parent:'scsa',intro:'A dedicated place to collect and check the requirements relevant to a proposed endorsed program.'},
  {id:'scsa-application',title:'SCSA Application',parent:'scsa',intro:'Organise the application material when the program design and requirements are ready.'},
  {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'},
- {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'}
+ {id:'research-background',title:'Research & Background',intro:'Explore the sources and earlier thinking by theme. These references inform the discussion; they are not an agreed SkillsQuest framework.',children:['research-origins','research-frameworks','research-practice','research-pathways']},
+ {id:'research-origins',title:'Origins & Purpose',parent:'research-background',intro:'The experiences and early design questions that inspired SkillsQuest.'},
+ {id:'research-frameworks',title:'Skills Frameworks',parent:'research-background',intro:'Research and definitions informing the choice of capabilities and skills.'},
+ {id:'research-practice',title:'Learning & School Practice',parent:'research-background',intro:'Teaching, reflection and school implementation examples retained as background, not models selected for adoption.'},
+ {id:'research-pathways',title:'Portfolios & Pathways',parent:'research-background',intro:'Research and policy thinking about recognising learning, learner profiles and future pathways.'}
 ];
 const drafts = {
   'program-foundations': {
@@ -558,8 +562,15 @@ nav.addEventListener('click',event=>{
 const menu=document.querySelector('#menu-toggle');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
 function cards(ids){return `<div class="grid">${ids.map(id=>{const p=byId[id];return `<a class="card" href="${pageHref(id)}"><div class="card-top"><span class="arrow" aria-hidden="true">↗</span></div><h3>${p.title}</h3><p>${p.intro}</p></a>`}).join('')}</div>`}
-function researchLibrary() {
- return references.map(source => `
+const researchThemes = {
+ 'research-origins':['tkc'],
+ 'research-frameworks':['halsall'],
+ 'research-practice':['rossmoyne','harrisdale','kolb'],
+ 'research-pathways':['matching','pathways']
+};
+const sourceTheme = Object.fromEntries(Object.entries(researchThemes).flatMap(([theme,ids])=>ids.map(id=>[id,theme])));
+function researchLibrary(ids) {
+ return references.filter(source=>!ids||ids.includes(source.id)).map(source => `
   <section class="content-panel" id="source-${source.id}">
    <p class="eyebrow">${source.type}</p>
    <h2>${source.title}</h2>
@@ -571,7 +582,7 @@ function researchLibrary() {
 function renderSourceNotes(notes) {
  return `<section class="content-panel"><h2>Ideas from the sources</h2><ul>${notes.map(([id, idea]) => {
   const source = references.find(entry => entry.id === id);
-  return `<li>${idea} <a href="#research-background/${id}">${source.title}</a></li>`;
+  return `<li>${idea} <a href="#${sourceTheme[id]}/${id}">${source.title}</a></li>`;
  }).join('')}</ul></section>`;
 }
 const capabilityModels = [
@@ -813,7 +824,7 @@ async function loadSourceSlides(container, groups) {
   container.textContent = 'The source slides could not load. Reload this page to try again.';
  }
 }
-function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/');id=id||'overview';if(id==='purpose')id='research-background';if(!byId[id])id='overview';const p=byId[id];
+function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/');id=id||'overview';if(id==='purpose')id='research-origins';if(id==='research-background'&&sourceId&&sourceTheme[sourceId])id=sourceTheme[sourceId];if(!byId[id])id='overview';const p=byId[id];
  document.title=`${p.title} · SkillsQuest`;
  document.querySelector('#breadcrumb').textContent=p.parent?`${byId[p.parent].title} / ${p.title}`:p.title;
  nav.querySelectorAll('a').forEach(a=>{if(a.dataset.page===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
@@ -832,7 +843,9 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
 <section class="content-panel" id="transfer-evidence"><h2>Confidence grounded in what students already bring</h2><p>A portfolio can distinguish <strong>demonstrated in this context</strong>, <strong>relevant to a new context</strong>, and <strong>adapted and demonstrated elsewhere</strong>. These describe the evidence, not a ranking of the worth of an experience. A thoughtful reflection can explain a connection; a later example can show the adaptation in action.</p><p><strong>SkillsQuest helps students recognise, explain and build on their capabilities, adapt them to new situations and identify what they still need to learn.</strong></p><p>Discussion question: how can we recognise a student's existing foundation while making the next step specific, achievable and encouraging?</p></section>
 <section class="content-panel"><h2>Earlier thinking and examples</h2>${postFigure(p.post)}</section>`;
  else if(p.post)main.innerHTML=`${header}${postFigure(p.post)}`;
- else if(id==='research-background')main.innerHTML=`${header}<section class="content-panel"><h2>What inspired SkillsQuest</h2>${postFigure(originPost)}</section><section class="content-panel"><h2>Earlier program design principles</h2><p>${drafts['program-foundations'].lead}</p><ul>${drafts['program-foundations'].items.map(item=>`<li>${item}</li>`).join('')}</ul></section>${researchLibrary()}`;
+ else if(id==='research-background')main.innerHTML=`${header}<section class="content-panel"><h2>Find the thinking behind the design</h2><p>Choose a theme below or open a subpage in the menu. The source extracts remain available in the relevant learning and assessment pages, linked from each reference.</p></section>${cards(p.children)}`;
+ else if(id==='research-origins')main.innerHTML=`${header}<section class="content-panel"><h2>What inspired SkillsQuest</h2>${postFigure(originPost)}</section><section class="content-panel"><h2>Earlier program design principles</h2><p>${drafts['program-foundations'].lead}</p><ul>${drafts['program-foundations'].items.map(item=>`<li>${item}</li>`).join('')}</ul></section>${researchLibrary(researchThemes[id])}`;
+ else if(researchThemes[id])main.innerHTML=`${header}${id==='research-frameworks'?'<section class="content-panel"><h2>Compare before selecting</h2><p>See <a href="#skills-choice">Skills Choice</a> for the evolving comparison, research links and recommended pilot themes. The sources below provide background; none is presented as SCSA’s required list.</p></section>':''}${researchLibrary(researchThemes[id])}`;
  else if(id==='overview')main.innerHTML=`<p class="eyebrow">Proposed Provider Endorsed Program</p><h1 id="page-title">SkillsQuest</h1><p class="lead">${p.intro}</p><section class="content-panel"><h2>Three key ways learners develop</h2><p>SkillsQuest is a program of learning that enables learners to:</p><ol><li><strong>Build confidence, self-efficacy and a positive sense of identity.</strong> Recognise the value of their life experiences and articulate the highly valued employability skills they have developed.</li><li><strong>Connect their skills and experiences to opportunities.</strong> Learn to contextualise their skills and experiences to selection criteria, while identifying skills gaps and areas for improvement.</li><li><strong>Understand employability skills.</strong> Learn about the key components of employability skills and what they look like in practice.</li></ol></section><section class="content-panel" style="margin-top:24px"><h2>Two ways students progress</h2><ol><li><strong>Skills learning and exercises.</strong> Develop knowledge and understanding of employability skills, the dimensions of competence and the Dreyfus Model of Skill Acquisition.</li><li><strong>Self-evaluation, reflection and portfolio building.</strong> Map their own experiences against established employability skills, evaluate what they have learned and build a portfolio that makes their development visible. Experiences can come from school, work, home, volunteering and community life, helping learners recognise their interests and possible future pathways.</li></ol></section><section class="content-panel" style="margin-top:24px"><h2>Recording experiences and working towards WACE</h2><p>Students will log their experiences as part of the program. Subject to SCSA approval and the unit equivalence granted, successful completion may contribute unit equivalents towards the Western Australian Certificate of Education (WACE), including its C-grade requirement.</p><p><strong>SkillsQuest is not yet SCSA endorsed.</strong></p></section>`;
  else if(id==='who-will-host')main.innerHTML=`${header}<section class="content-panel"><h2>A provider-developed program</h2><p>SkillsQuest is being developed independently, rather than by SCSA or a school. <a href="https://senior-secondary.scsa.wa.edu.au/syllabus-and-support-materials/endorsed-programs" target="_blank" rel="noopener">The intended pathway is a <strong>provider-developed endorsed program</strong>, subject to SCSA approval.</a> The organisation responsible for the program need not be the same organisation operating the software or funding student access.</p><p>Tania brings career development knowledge and learning-design experience. Her partner brings cybersecurity and records-management experience. These strengths would need to be supported by documented assessment, quality assurance, secure records, ongoing support and continuity arrangements.</p></section>
 <section class="content-panel"><h2>Credibility, research and equitable access</h2><p>The aim is to help young people recognise the value of their experiences, build self-efficacy and communicate their strengths, particularly where those strengths are not fully recognised by conventional academic measures. Disadvantage or lower academic attainment should not be treated as evidence that an individual lacks capability or confidence.</p><ul><li>Use research-informed learning design, independent educational review and pilot evidence to test the program’s value.</li><li>Evaluate confidence, skill articulation and career aspirations rather than promise lifelong impact.</li><li>Make commercial interests, pricing and scholarship decisions transparent. Financial sustainability and access need to be designed together.</li><li>Consider devices, connectivity, accessibility and school support as well as licence cost. Low ICSEA can guide school-level targeting, not assumptions about individual learners.</li></ul></section>
@@ -873,16 +886,18 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  if(id==='how-it-will-work')main.insertAdjacentHTML('beforeend','<section class="content-panel"><h2>Secure records and school trust</h2><p>How records are protected and maintained is part of the design, not an assumption. See <a href="#secure-records">Secure Records &amp; Privacy</a> for the proposed controls, official guidance and evidence still to prepare.</p></section>');
  if(['how-it-will-work','portfolio-view','teacher-view','provider-view'].includes(id))main.insertAdjacentHTML('beforeend',`<section class="content-panel"><h2>Learning record & verification mockup</h2><p>Explore an original SkillsQuest concept: employability skill sections, game-recorded time, external verification and a separate portfolio review. Fictional data only; no records are sent or saved.</p><p><a href="learning-record.html" target="_blank" rel="noopener">Open the interactive mockup in a full window ↗</a></p><iframe src="learning-record.html" title="SkillsQuest learning record and verification mockup" style="width:100%;height:950px;border:1px solid #dce2d5;border-radius:16px" loading="lazy"></iframe></section>`);
  if(id==='skills-choice')main.insertAdjacentHTML('beforeend',capabilityComparison());
- if(topicExtracts[id])main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts[id]));
+ if(id==='research-pathways'){main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts['research-background']));main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes['research-background']));}
+ if(topicExtracts[id]&&id!=='research-background')main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts[id]));
  if(slideGroups[id]) {
   main.insertAdjacentHTML('beforeend','<section class="content-panel"><h2>Extracts from the source slides</h2><div id="source-slides">Loading source slides…</div></section>');
   void loadSourceSlides(document.getElementById('source-slides'), slideGroups[id]);
  }
- if(sourceNotes[id])main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes[id]));
+ if(sourceNotes[id]&&id!=='research-background')main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes[id]));
  const idx=pages.indexOf(p);if(!isWorld)main.insertAdjacentHTML('beforeend',`<div class="page-bottom">${idx?`<a href="#${pages[idx-1].id}">← ${pages[idx-1].title}</a>`:''}${idx<pages.length-1?`<a class="next" href="#${pages[idx+1].id}">${pages[idx+1].title} →</a>`:''}</div>`);
- if(focus){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if(id==='research-background' && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}
+ if(focus){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if((id==='research-background'||researchThemes[id]) && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}
 }
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();document.querySelector('main').focus()});
 window.addEventListener('hashchange',()=>{const focus=!groupNavigation;groupNavigation=false;render(focus)});render();
+
 
 

@@ -1,6 +1,6 @@
 'use strict';
 const pages = [
- {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'},
+ {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Open Skillsville to explore the playable world.'},
  {id:'overview',title:'Overview',intro:'SkillQuest is Tania’s personal project to develop an employability learning and portfolio program for Years 10–12. This hub brings together the playable Skillsville prototype and the plans for a proposed SCSA endorsed program.'},
  {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'},
  {id:'purpose',title:'Purpose',intro:'Define what SkillsQuest is here to achieve, who it is for and the difference it should make.'},
@@ -545,6 +545,97 @@ function renderSourceNotes(notes) {
   return `<li>${idea} <a href="#research-background/${id}">${source.title}</a></li>`;
  }).join('')}</ul></section>`;
 }
+const capabilityModels = [
+  [
+    "WA Department of Education",
+    "Work Capabilities · Halsall, slide 6",
+    "#research-background/halsall"
+  ],
+  [
+    "Rossmoyne SHS",
+    "Capabilities for Learning and Life · slide 24",
+    "#research-background/rossmoyne"
+  ],
+  [
+    "Harrisdale SHS",
+    "Initial elective focus · slide 16",
+    "#research-background/harrisdale"
+  ],
+  [
+    "Skills Builder",
+    "2024 version shown at Harrisdale · slide 18",
+    "#research-background/harrisdale"
+  ],
+  [
+    "Melbourne New Metrics",
+    "Six complex competencies · TKC slide 27",
+    "#research-background/tkc"
+  ],
+  [
+    "SCSA",
+    "WA General Capabilities · 2026",
+    "https://k10outline.scsa.wa.edu.au/home/wa-curriculum/general-capabilities"
+  ],
+  [
+    "Australian Skills Classification",
+    "Historical core competencies",
+    "https://www.jobsandskills.gov.au/sites/default/files/2022-02/Skills%20and%20jobs%20of%20the%20future%20%E2%80%93%20the%20Four%20Cs.pdf"
+  ],
+  [
+    "Sattler",
+    "Recurring concepts across eight taxonomies · Table 4",
+    "https://gjsd.gile-edu.org/index.php/home/article/view/14-sattler-3-20"
+  ]
+];
+const capabilityRows = [
+ ["Communication","Interpersonal skills and communication","Communication","Interpersonal skills and communication","Listening + speaking","Communication","~Literacy","Oral communication","Communication"],
+ ["Collaboration","Teamwork and collaboration","Teamwork and collaboration","Teamwork and collaboration","Teamwork","Collaboration","~Personal and social capability","Teamwork","Teamwork"],
+ ["Initiative","Initiative","~Learner agency, work ethic","","~Aiming high","~Agency in learning","~Personal and social capability","Initiative and innovation","Adaptability and initiative"],
+ ["Problem-solving","Problem solving","Problem solving","Problem solving","Problem solving","~Quality thinking","~Critical and creative thinking","Problem solving","Problem solving and decision making"],
+ ["Adaptability","Adaptability and resilience","Adaptability","","~Staying positive","~Agency in learning","~Personal and social capability","","Adaptability and initiative"],
+ ["Self-management","~Planning and organisation","~Work ethic, learner agency","","~Aiming high, staying positive","~Agency in learning","~Personal and social capability","~Planning and organising","~Planning and organising"],
+ ["Creativity","Creativity","Creative thinking","Creativity","Creativity","~Quality thinking","Critical and creative thinking","~Initiative and innovation","Creativity and innovation"],
+ ["Leadership","","Leadership","","Leadership","~Collaboration","~Personal and social capability","","Leadership and developing others"],
+ ["Critical thinking","Critical thinking","Critical thinking","","","~Quality thinking","Critical and creative thinking","","Critical and analytical thinking"],
+ ["Learning, agency and metacognition","~Lifelong learning","Learner agency, metacognition","","~Aiming high","Agency in learning","~Critical and creative thinking","Learning","Learning"],
+ ["Resilience and emotional intelligence","~Adaptability and resilience","Resilience, emotional intelligence","","~Staying positive","~Agency in learning","~Personal and social capability","",""],
+ ["Planning and organising","Planning and organisation","~Work ethic, learner agency","","~Aiming high","~Agency in learning","~Personal and social capability","Planning and organising","Planning and organising"],
+ ["Ethics, culture and citizenship","Cultural responsiveness, ethical integrity","Ethical and cultural understanding","","","Acting ethically, active citizenship","Ethical understanding, intercultural understanding","",""],
+ ["Digital literacy","Foundational literacies","Digital literacy","","","","Digital literacy","Digital engagement","Digital literacy"],
+ ["Literacy and numeracy","Foundational literacies","Literacy, numeracy","","","","Literacy, numeracy","Reading, writing, numeracy","Literacy, numeracy"]
+];
+
+function capabilityComparison() {
+ const columns = capabilityModels.map(([name, version, href]) => `<th scope="col"><a href="${href}">${name}</a><small>${version}</small></th>`).join('');
+ const body = capabilityRows.map(([concept, ...matches], index) => {
+  const cells = matches.map(match => {
+   if (!match) return '<td class="capability-empty"><span aria-label="No separate match in the source">—</span></td>';
+   if (match.startsWith('~')) return `<td class="capability-partial"><small>Partial</small>${match.slice(1)}</td>`;
+   return `<td class="capability-match">${match}</td>`;
+  }).join('');
+  const group = index === 0 ? 'Current prototype lab themes' : index === 8 ? 'Other capabilities to consider' : '';
+  return `${group ? `<tr class="capability-group"><th colspan="${capabilityModels.length+1}">${group}</th></tr>` : ''}<tr><th scope="row">${concept}</th>${cells}</tr>`;
+ }).join('');
+ return `<section class="content-panel" id="capability-comparison">
+  <h2>Compare capability models</h2>
+  <p>Read across a row to compare the labels. A shaded cell shows an explicit match or close synonym. <strong>Partial</strong> marks a broader or related concept. A dash means the source has no separate match at the level compared here.</p>
+  <p>Scroll across to see all eight sources. Select a column heading to open its source.</p>
+  <div class="capability-scroll" tabindex="0" role="region" aria-label="Scrollable capability comparison">
+   <table class="capability-table">
+    <thead><tr><th scope="col">SkillQuest theme or candidate</th>${columns}</tr></thead>
+    <tbody>${body}</tbody>
+   </table>
+  </div>
+  <h3>Questions for the capability decision</h3>
+  <ul>
+   <li><strong>Separate or combine?</strong> Explore whether to keep Initiative and Adaptability separate, and whether to explicitly teach critical thinking within Problem-solving and Creativity.</li>
+   <li><strong>Where does learning to learn sit?</strong> Learner agency, reflection and planning appear in several sources. Decide whether to name them, include them within Self-management or teach them across the labs.</li>
+   <li><strong>Which capabilities run across the program?</strong> Consider how literacy, numeracy, digital literacy, ethical judgement and intercultural understanding would appear in lab tasks and portfolio evidence.</li>
+  </ul>
+  <p>This is a draft interpretation of the source labels and their scope. Harrisdale’s column shows its initial elective focus, while Skills Builder shows the version it later illustrated. The historical Australian Skills Classification and Sattler’s research synthesis are workforce references. Track the developing National Skills Taxonomy in the update below.</p>
+ </section>`;
+}
+
 function renderTopicExtracts(extracts) {
  return extracts.map(([title, summary, links = []]) => `
   <section class="content-panel">
@@ -577,7 +668,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  nav.querySelectorAll('a').forEach(a=>{if(a.dataset.page===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  const main=document.querySelector('main');
  const header=`<p class="eyebrow">${p.parent?byId[p.parent].title:'Personal project · Endorsed program'}</p><h1 id="page-title">${id==='overview'?'SkillQuest':p.title}</h1><p class="lead">${p.intro}</p>`;
- if(id==='existing-prototype')main.innerHTML=`${header}<p><a href="skillsquest-prototype.html" target="_blank" rel="noopener">Open prototype and portfolio in a full window ↗</a></p><p><a href="https://taniab1975.github.io/skillquest/">Play the full SkillQuest game</a> · <a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p><iframe title="SkillsQuest prototype and capabilities portfolio" src="skillsquest-prototype.html" style="width:100%;height:850px;border:1px solid #dce2d5;border-radius:18px" allowfullscreen></iframe>`;
+ if(id==='existing-prototype')main.innerHTML=`${header}<section class="content-panel"><p><a class="card" href="skillsville/"><strong>Play Skillsville full screen</strong></a></p><p><a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p></section>`;
  else if(p.post)main.innerHTML=`${header}${postFigure(p.post)}`;
  else if(id==='research-background')main.innerHTML=`${header}${researchLibrary()}`;
  else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['existing-prototype','research-background','purpose','transferable-skills','efficacy-building','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;
@@ -588,6 +679,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
   main.innerHTML = `${header}<section class="content-panel"><h2>${draft.heading}</h2><p>${draft.lead}</p><ul>${draft.items.map(item => `<li>${item}</li>`).join('')}</ul>${sources}</section>`;
  }
  if(id==='purpose')main.insertAdjacentHTML('beforeend',`<section class="content-panel"><h2>What inspired SkillQuest</h2>${postFigure(originPost)}</section>`);
+ if(id==='skills-choice')main.insertAdjacentHTML('beforeend',capabilityComparison());
  if(topicExtracts[id])main.insertAdjacentHTML('beforeend',renderTopicExtracts(topicExtracts[id]));
  if(slideGroups[id]) {
   main.insertAdjacentHTML('beforeend','<section class="content-panel"><h2>Extracts from the source slides</h2><div id="source-slides">Loading source slides…</div></section>');

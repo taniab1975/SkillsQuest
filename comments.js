@@ -22,7 +22,7 @@ const nameLabel=el('label','Display name (public)');const name=el('input');name.
 const bodyLabel=el('label','Comment');const body=el('textarea');body.rows=4;body.maxLength=2000;body.required=true;bodyLabel.append(body);form.append(bodyLabel);
 const trapLabel=el('label','Leave empty','sq-honeypot');const trap=el('input');trap.name='website';trap.tabIndex=-1;trap.autocomplete='off';trapLabel.append(trap);trapLabel.setAttribute('aria-hidden','true');form.append(trapLabel);
 const submit=el('button','Post publicly');submit.type='submit';form.append(submit);
-const status=el('p','','sq-comment-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');form.append(status);panel.append(form);document.body.append(panel);
+const status=el('p','','sq-comment-status');status.setAttribute('role','status');status.setAttribute('aria-live','polite');form.append(status);panel.append(form);document.body.append(panel);window.dispatchEvent(new Event('sq-comments-ready'));
 function updateMode(){document.body.classList.toggle('sq-comment-mode',mode);modeButton.setAttribute('aria-pressed',String(mode));modeButton.textContent=mode?'Stop selecting text':'Comment on text';annotate();}
 function open(){panel.hidden=false;toggle.setAttribute('aria-expanded','true');load();}
 function close(){panel.hidden=true;mode=false;updateMode();toggle.setAttribute('aria-expanded','false');toggle.focus();}

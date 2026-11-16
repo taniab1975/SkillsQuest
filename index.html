@@ -3,12 +3,24 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="SkillsQuest — a working space for shaping a skills learning program."><title>SkillsQuest · Project hub</title>
-<link rel="stylesheet" href="styles.css"><script src="app.js?v=abc5d97" defer></script>
+<link rel="stylesheet" href="styles.css"><script src="app.js?v=5bc2715" defer></script>
 <style>
 .source-slide { margin: 1.5rem 0 0; break-inside: avoid; }
 .source-slide + .source-slide { padding-top: 1rem; border-top: 1px solid #dce2d5; }
 .source-slide img { display: block; width: 100%; height: auto; background: white; border: 1px solid #dce2d5; }
 .source-slide figcaption { margin-top: .5rem; font-size: .88rem; }
+.capability-scroll { max-width: 100%; overflow-x: auto; border: 1px solid #cbd7cc; border-radius: .55rem; }
+.capability-scroll:focus-visible { outline: 3px solid #487c63; outline-offset: 3px; }
+.capability-table { width: 100%; min-width: 76rem; border-collapse: separate; border-spacing: 0; font-size: .85rem; line-height: 1.35; }
+.capability-table th, .capability-table td { padding: .65rem .55rem; border-bottom: 1px solid #dce2d5; border-right: 1px solid #e1e8de; text-align: left; vertical-align: top; }
+.capability-table th { background: #f2f5ef; }
+.capability-table th:first-child:not([colspan]) { position: sticky; left: 0; min-width: 8.5rem; box-shadow: 1px 0 #ced7cb; }
+.capability-table thead th { min-width: 8rem; }
+.capability-table small { display: block; margin-top: .2rem; font-size: .75rem; font-weight: normal; }
+.capability-table .capability-match { background: #e7f2e9; }
+.capability-table .capability-partial small { color: #664812; font-weight: 650; margin: 0 0 .16rem; }
+.capability-table .capability-empty { color: #667268; }
+.capability-table .capability-group th { background: #dce8de; }
 </style>
 </head>
 <body>

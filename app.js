@@ -43,8 +43,8 @@ const drafts = {
   },
   'skills-choice': {
     heading: "The current prototype set",
-    lead: "Skillsville has eight agreed lab themes for the world design. The formal endorsed-program framework, definitions and progression are still open.",
-    items: ["Communication and Collaboration cover clear exchanges, listening and working towards a shared outcome.","Initiative and Self-management cover noticing what needs doing, following through and organising time and effort.","Problem-solving and Adaptability cover investigating a problem, testing options and adjusting when conditions change.","Creativity and Leadership cover generating and improving ideas, inviting input and helping a group act.","Use Skills Builder as a reference when comparing definitions and overlap. Check permissions before adapting third-party material."]
+    lead: "The Skillsville lab themes are illustrative examples to show what is possible. Further work is needed to decide which skills to take forward and how they will be defined and developed.",
+    items: ["Communication and Collaboration cover clear exchanges, listening and working towards a shared outcome.","Initiative and Self-management cover noticing what needs doing, following through and organising time and effort.","Problem-solving and Adaptability cover investigating a problem, testing options and adjusting when conditions change.","Creativity and Leadership cover generating and improving ideas, inviting input and helping a group act."]
   },
   'pedagogy': {
     heading: "Learn, experiment and reflect",

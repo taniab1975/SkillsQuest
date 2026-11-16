@@ -9,18 +9,19 @@ const pages = [
  {id:'efficacy-building',title:'Efficacy Building',intro:'A starting point for thinking about self-efficacy, learner agency and confidence in career learning.',post:{path:'efficacy-building-post.svg',width:420,height:1182,alt:'Tania Byrnes’s post on learner self-efficacy and confidence. It discusses recognising unhelpful thinking, explicit teaching, supportive practice, flexible pathways and revisiting progress. The diagram connects self-efficacy, outcome expectations, goals, behaviour and contextual influences.'}},
  {id:'skills-choice',title:'Skills Choice',intro:'Compare the options and choose the most appropriate skills framework. The prototype lab themes provide a starting point for the formal framework.'},
  {id:'pedagogy',title:'Pedagogy',intro:'Set out the learning principles that will guide the design of SkillsQuest.'},
- {id:'main-ecosystem',title:'Main Ecosystem',intro:'Skillsville houses the Skills Labs and My Portfolio. Labs give learners room to experiment and develop capabilities. My Portfolio helps them record meaningful experiences and revisit them over time.',children:['skills-labs','portfolio-entry','portfolio-view','teacher-view','provider-view','existing-prototype']},
+ {id:'main-ecosystem',title:'Main Ecosystem',intro:'Skillsville houses the Skills Labs and My Portfolio. Labs give learners room to experiment and develop capabilities. My Portfolio helps them record meaningful experiences and revisit them over time.',children:['skills-labs','portfolio-entry','portfolio-view','teacher-view','provider-view','skillsville-world']},
  {id:'skills-labs',title:'Skills labs',parent:'main-ecosystem',intro:'A place to design experiences that help learners explore and practise skills.'},
  {id:'portfolio-entry',title:'Portfolio entry',parent:'main-ecosystem',intro:'Design how learners capture an experience and connect it with the skills they have used.'},
  {id:'portfolio-view',title:'Portfolio View',parent:'main-ecosystem',intro:'Plan how learners review their experiences, evidence and developing skills over time.'},
  {id:'teacher-view',title:'Teacher View',parent:'main-ecosystem',intro:'Define the information and tools teachers need to support learning and review progress.'},
  {id:'provider-view',title:'Provider View',parent:'main-ecosystem',intro:'Explore how participating providers could contribute to and review learning.'},
- {id:'existing-prototype',title:'Skillsville prototype world',parent:'main-ecosystem',href:'skillsville/',intro:'Open Skillsville to explore the playable world.'},
+ {id:'skillsville-world',title:'Skillsville prototype world',parent:'main-ecosystem',href:'skillsville/',intro:'Open Skillsville to explore the playable world.'},
  {id:'assessment',title:'Assessment',intro:'The draft assessment approach focuses on what learners can explain about their own actions, results and learning in authentic contexts. Lab feedback supports practice and a portfolio review considers the evidence.',children:['reflection-tool','evidence-of-learning']},
  {id:'reflection-tool',title:'Reflection Tool',parent:'assessment',intro:'Design prompts that help learners explain their choices, recognise learning and consider their next step.'},
  {id:'evidence-of-learning',title:'Evidence of Learning',parent:'assessment',intro:'Clarify what counts as evidence and how it demonstrates the intended learning.'},
  {id:'scsa-requirements',title:'SCSA requirements',intro:'A dedicated place to collect and check the requirements relevant to a proposed endorsed program.'},
- {id:'scsa-application',title:'SCSA Application',intro:'Organise the application material when the program design and requirements are ready.'}
+ {id:'scsa-application',title:'SCSA Application',intro:'Organise the application material when the program design and requirements are ready.'},
+ {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Copied from the CEAWA SkillsQuest tab: explore the playable prototype, student portfolio and learner and teacher walkthroughs.'}
 ];
 const drafts = {
   'purpose': {
@@ -674,7 +675,8 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  nav.querySelectorAll('a').forEach(a=>{if(a.dataset.page===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  const main=document.querySelector('main');
  const header=`<p class="eyebrow">${p.parent?byId[p.parent].title:'Personal project · Endorsed program'}</p><h1 id="page-title">${id==='overview'?'SkillQuest':p.title}</h1><p class="lead">${p.intro}</p>`;
- if(id==='existing-prototype')main.innerHTML=`${header}<section class="content-panel"><p><a class="card" href="skillsville/"><strong>Play Skillsville full screen</strong></a></p><p><a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p></section>`;
+ if(id==='existing-prototype')main.innerHTML=`${header}<p><a href="skillsquest-prototype.html" target="_blank" rel="noopener">Open prototype and portfolio in a full window ↗</a></p><p><a href="skillsville/">Play the full SkillQuest game</a> · <a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p><iframe title="SkillsQuest prototype and capabilities portfolio" src="skillsquest-prototype.html" style="width:100%;height:850px;border:1px solid #dce2d5;border-radius:18px" allowfullscreen></iframe>`;
+ else if(p.href)main.innerHTML=`${header}<p><a href="${p.href}">Play Skillsville full screen</a></p>`;
  else if(p.post)main.innerHTML=`${header}${postFigure(p.post)}`;
  else if(id==='research-background')main.innerHTML=`${header}${researchLibrary()}`;
  else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['research-background','purpose','transferable-skills','efficacy-building','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;

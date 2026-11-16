@@ -1,6 +1,5 @@
 'use strict';
 const pages = [
- {id:'existing-prototype',title:'SkillsQuest prototype',intro:'Open Skillsville to explore the playable world.'},
  {id:'overview',title:'Overview',intro:'SkillQuest is Tania’s personal project to develop an employability learning and portfolio program for Years 10–12. This hub brings together the playable Skillsville prototype and the plans for a proposed SCSA endorsed program.'},
  {id:'research-background',title:'Research & Background',intro:'Source index for the extracts and design ideas used across the SkillQuest tabs.'},
  {id:'purpose',title:'Purpose',intro:'Define what SkillsQuest is here to achieve, who it is for and the difference it should make.'},
@@ -10,12 +9,13 @@ const pages = [
  {id:'efficacy-building',title:'Efficacy Building',intro:'A starting point for thinking about self-efficacy, learner agency and confidence in career learning.',post:{path:'efficacy-building-post.svg',width:420,height:1182,alt:'Tania Byrnes’s post on learner self-efficacy and confidence. It discusses recognising unhelpful thinking, explicit teaching, supportive practice, flexible pathways and revisiting progress. The diagram connects self-efficacy, outcome expectations, goals, behaviour and contextual influences.'}},
  {id:'skills-choice',title:'Skills Choice',intro:'Compare the options and choose the most appropriate skills framework. The prototype lab themes provide a starting point for the formal framework.'},
  {id:'pedagogy',title:'Pedagogy',intro:'Set out the learning principles that will guide the design of SkillsQuest.'},
- {id:'main-ecosystem',title:'Main Ecosystem',intro:'Skillsville houses the Skills Labs and My Portfolio. Labs give learners room to experiment and develop capabilities. My Portfolio helps them record meaningful experiences and revisit them over time.',children:['skills-labs','portfolio-entry','portfolio-view','teacher-view','provider-view']},
+ {id:'main-ecosystem',title:'Main Ecosystem',intro:'Skillsville houses the Skills Labs and My Portfolio. Labs give learners room to experiment and develop capabilities. My Portfolio helps them record meaningful experiences and revisit them over time.',children:['skills-labs','portfolio-entry','portfolio-view','teacher-view','provider-view','existing-prototype']},
  {id:'skills-labs',title:'Skills labs',parent:'main-ecosystem',intro:'A place to design experiences that help learners explore and practise skills.'},
  {id:'portfolio-entry',title:'Portfolio entry',parent:'main-ecosystem',intro:'Design how learners capture an experience and connect it with the skills they have used.'},
  {id:'portfolio-view',title:'Portfolio View',parent:'main-ecosystem',intro:'Plan how learners review their experiences, evidence and developing skills over time.'},
  {id:'teacher-view',title:'Teacher View',parent:'main-ecosystem',intro:'Define the information and tools teachers need to support learning and review progress.'},
  {id:'provider-view',title:'Provider View',parent:'main-ecosystem',intro:'Explore how participating providers could contribute to and review learning.'},
+ {id:'existing-prototype',title:'Skillsville prototype world',parent:'main-ecosystem',href:'skillsville/',intro:'Open Skillsville to explore the playable world.'},
  {id:'assessment',title:'Assessment',intro:'The draft assessment approach focuses on what learners can explain about their own actions, results and learning in authentic contexts. Lab feedback supports practice and a portfolio review considers the evidence.',children:['reflection-tool','evidence-of-learning']},
  {id:'reflection-tool',title:'Reflection Tool',parent:'assessment',intro:'Design prompts that help learners explain their choices, recognise learning and consider their next step.'},
  {id:'evidence-of-learning',title:'Evidence of Learning',parent:'assessment',intro:'Clarify what counts as evidence and how it demonstrates the intended learning.'},
@@ -528,12 +528,13 @@ const slideGroups = {
   ]
 };
 const byId = Object.fromEntries(pages.map(p=>[p.id,p]));
+const pageHref = id => byId[id].href || '#' + id;
 const nav=document.querySelector('#navigation');
 let number=0;
-nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{const n=String(++number).padStart(2,'0');return `<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>${p.children?`<div class="children">${p.children.map(id=>`<a href="#${id}" data-page="${id}">${byId[id].title}</a>`).join('')}</div>`:''}`}).join('');
+nav.innerHTML=pages.filter(p=>!p.parent).map(p=>{const n=String(++number).padStart(2,'0');return `<a href="#${p.id}" data-page="${p.id}"><span class="num">${n}</span>${p.title}</a>${p.children?`<div class="children">${p.children.map(id=>`<a href="${pageHref(id)}" data-page="${id}">${byId[id].title}</a>`).join('')}</div>`:''}`}).join('');
 const menu=document.querySelector('#menu-toggle');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
-function cards(ids){return `<div class="grid">${ids.map(id=>{const p=byId[id];return `<a class="card" href="#${id}"><div class="card-top"><span class="arrow" aria-hidden="true">↗</span></div><h3>${p.title}</h3><p>${p.intro}</p></a>`}).join('')}</div>`}
+function cards(ids){return `<div class="grid">${ids.map(id=>{const p=byId[id];return `<a class="card" href="${pageHref(id)}"><div class="card-top"><span class="arrow" aria-hidden="true">↗</span></div><h3>${p.title}</h3><p>${p.intro}</p></a>`}).join('')}</div>`}
 function researchLibrary() {
  return references.map(source => `
   <section class="content-panel" id="source-${source.id}">
@@ -676,7 +677,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  if(id==='existing-prototype')main.innerHTML=`${header}<section class="content-panel"><p><a class="card" href="skillsville/"><strong>Play Skillsville full screen</strong></a></p><p><a href="https://taniab1975.github.io/skillquest/proposal.html">Read the original SkillQuest design proposal</a></p></section>`;
  else if(p.post)main.innerHTML=`${header}${postFigure(p.post)}`;
  else if(id==='research-background')main.innerHTML=`${header}${researchLibrary()}`;
- else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['existing-prototype','research-background','purpose','transferable-skills','efficacy-building','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;
+ else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['research-background','purpose','transferable-skills','efficacy-building','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;
  else if(p.children)main.innerHTML=`${header}<div class="section-bar"><h2>Explore this part of the program</h2><span>${p.children.length} connected sections</span></div>${cards(p.children)}`;
  else {
   const draft = drafts[id];

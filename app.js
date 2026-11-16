@@ -94,6 +94,17 @@ const drafts = {
     items: ["Build the application around a teaching scope and sequence, sample activities, annotated fictional evidence, draft completion criteria and a moderation plan.","Use a pilot to gather learning-time estimates, evidence quality and feedback on teaching, learner experience and accessibility.","Open decisions include the applicant, route, delivery model, approved framework and completion standard. Endorsement, hours and unit equivalence are unconfirmed."]
   }
 };
+const originPost = {
+  path: 'project-purpose-post.svg',
+  width: 534,
+  height: 1086,
+  alt: 'Tania Byrnes reflects on helping people return to work and recognising skills gained through sports clubs, caring and household responsibilities. She connects that experience to broader recognition of student capabilities and confidence in future pathways.'
+};
+
+function postFigure(post) {
+ return `<figure class="content-panel" style="margin-inline:0;max-width:760px"><img src="${post.path}" width="${post.width}" height="${post.height}" alt="${post.alt}" style="display:block;max-width:100%;height:auto"><figcaption>Original post by Tania Byrnes</figcaption></figure>`;
+}
+
 const references = [
   {
     "id": "halsall",
@@ -349,7 +360,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  const main=document.querySelector('main');
  const header=`<p class="eyebrow">${p.parent?byId[p.parent].title:'Personal project · Endorsed program'}</p><h1 id="page-title">${id==='overview'?'SkillQuest':p.title}</h1><p class="lead">${p.intro}</p>`;
  if(id==='existing-prototype')main.innerHTML=`${header}<p><a href="skillsquest-prototype.html" target="_blank" rel="noopener">Open prototype and portfolio in a full window ↗</a></p><iframe title="SkillsQuest prototype and capabilities portfolio" src="skillsquest-prototype.html" style="width:100%;height:850px;border:1px solid #dce2d5;border-radius:18px" allowfullscreen></iframe>`;
- else if(p.post)main.innerHTML=`${header}<figure class="content-panel" style="margin-inline:0;max-width:760px"><img src="${p.post.path}" width="${p.post.width}" height="${p.post.height}" alt="${p.post.alt}" style="display:block;max-width:100%;height:auto"><figcaption>Original post by Tania Byrnes</figcaption></figure>`;
+ else if(p.post)main.innerHTML=`${header}${postFigure(p.post)}`;
  else if(id==='research-background')main.innerHTML=`${header}${researchLibrary()}`;
  else if(id==='overview')main.innerHTML=`<div class="hero"><div>${header}</div><div class="hero-mark" aria-hidden="true"><span>SQ</span></div></div><div class="section-bar"><h2>A foundation to build on</h2><span>Start anywhere. Keep the whole picture in view.</span></div>${cards(['existing-prototype','research-background','purpose','transferable-skills','efficacy-building','skills-choice','main-ecosystem','pedagogy','assessment','scsa-application'])}<div class="note"><span class="note-icon" aria-hidden="true">i</span><div><strong>Program in development</strong><br>The prototype and first program drafts are available here. Hosting, the formal framework and completion criteria are open for review.</div></div>`;
  else if(p.children)main.innerHTML=`${header}<div class="section-bar"><h2>Explore this part of the program</h2><span>${p.children.length} connected sections</span></div>${cards(p.children)}`;
@@ -358,6 +369,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
   const sources = id === 'scsa-requirements' ? `<p><a href="https://senior-secondary.scsa.wa.edu.au/vet/endorsed-programs">SCSA endorsed program guidance and application forms</a></p>` : '';
   main.innerHTML = `${header}<section class="content-panel"><h2>${draft.heading}</h2><p>${draft.lead}</p><ul>${draft.items.map(item => `<li>${item}</li>`).join('')}</ul>${sources}</section>`;
  }
+ if(id==='purpose')main.insertAdjacentHTML('beforeend',`<section class="content-panel"><h2>What inspired SkillQuest</h2>${postFigure(originPost)}</section>`);
  if(sourceNotes[id])main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes[id]));
  const idx=pages.indexOf(p);main.insertAdjacentHTML('beforeend',`<div class="page-bottom">${idx?`<a href="#${pages[idx-1].id}">← ${pages[idx-1].title}</a>`:''}${idx<pages.length-1?`<a class="next" href="#${pages[idx+1].id}">${pages[idx+1].title} →</a>`:''}</div>`);
  nav.classList.remove('open');menu.setAttribute('aria-expanded','false');if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if(id==='research-background' && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}

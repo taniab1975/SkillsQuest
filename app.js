@@ -325,6 +325,11 @@ const sourceNotes = {
 const topicExtracts = {
   "skills-choice": [
     [
+      "Capabilities in context",
+      "Bill Lucas’s 2018 Mitchell Institute snapshot traces how education systems have described capabilities over time and compares 15 international frameworks. Pages 2–5 include examples such as Habits of Mind, the International Baccalaureate learner profile, New Pedagogies for Deep Learning and UNESCO’s transversal competencies. For SkillQuest, it is a useful check on whether a proposed set gives enough attention to reflection, learning dispositions and citizenship alongside work skills.",
+      [["Read Capabilities in Context (PDF)","https://vuir.vu.edu.au/38693/1/Capabilities-in-context.pdf"]]
+    ],
+    [
       "What counts as a skill?",
       "Lucy Sattler’s October 2026 study compares eight workforce frameworks, including O*NET, ESCO, SkillsFuture Singapore and the former Australian Skills Classification. Twelve core concepts appeared in at least half of the frameworks. Communication, teamwork and problem solving appeared in all eight, even where labels and definitions differed. For SkillQuest, this supports testing learner-friendly names and keeping a record of equivalent terms used in school and work. The study provides a comparison point for the eight prototype themes.",
       [

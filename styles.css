@@ -7,9 +7,9 @@
 
 /* Skillsville fills the right-hand pane without hub headings or surrounding content. */
 .world-view .topbar,.world-view .workspace>footer{display:none}
-.world-view main{padding:0;max-width:none;margin:0;height:100dvh;min-height:0;display:flex}
-.world-view .world-frame{height:100%;min-height:0;flex:1;border:0;border-radius:0}
-@media(max-width:680px){.world-view .workspace{min-height:0}.world-view main{height:80svh;min-height:480px}}
+.world-view main{padding:0;max-width:none;margin:0;height:100vh;height:100dvh;min-height:0;display:block}
+.world-view .world-frame{display:block;width:100%;height:100vh;height:100dvh;min-height:480px;border:0;border-radius:0}
+@media(max-width:680px){.world-view .workspace{min-height:0}.world-view main,.world-view .world-frame{height:80vh;height:80svh;min-height:480px}}
 
 /* Collapsible navigation groups; hidden overrides the grid display above. */
 nav .nav-group-heading{display:flex;align-items:stretch;gap:3px}

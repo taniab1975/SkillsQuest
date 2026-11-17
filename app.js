@@ -837,6 +837,58 @@ sourceNotes['research-practice'] = [...(sourceNotes['research-practice'] || []),
 topicExtracts['research-practice'] = [...(topicExtracts['research-practice'] || []), ...(topicExtracts['assessment'] || []), ...(topicExtracts['reflection-tool'] || [])];
 slideGroups['research-practice'] = [...(slideGroups['research-practice'] || []), ...(slideGroups['assessment'] || [])];
 delete sourceNotes['reflection-tool']; delete topicExtracts['reflection-tool']; delete topicExtracts['assessment']; delete slideGroups['assessment'];
+const capabilityScenes = [
+  [
+    "communication",
+    "Communication",
+    "Two students exchange ideas and listen to each other."
+  ],
+  [
+    "collaboration",
+    "Collaboration",
+    "Two students carry a box together."
+  ],
+  [
+    "initiative",
+    "Initiative",
+    "A student starts setting up chairs before being asked."
+  ],
+  [
+    "problem-solving",
+    "Problem-solving",
+    "A student examines two versions of a model to find a fix."
+  ],
+  [
+    "adaptability",
+    "Adaptability",
+    "A student puts up an umbrella when it starts to rain."
+  ],
+  [
+    "self-management",
+    "Self-management",
+    "A student checks completed tasks off a plan."
+  ],
+  [
+    "creativity",
+    "Creativity",
+    "A student sketches different ideas for a design."
+  ],
+  [
+    "leadership",
+    "Leadership",
+    "A student explains the plan to their team."
+  ]
+];
+function capabilityGallery(linkToSkillsChoice) {
+  const tiles = capabilityScenes.map(([slug, name, description]) => {
+    const content = `<img src="assets/capabilities/${slug}.svg" width="214" height="122" alt="${description}" loading="lazy"><span>${name}</span>`;
+    return linkToSkillsChoice
+      ? `<a class="skill-tile" href="#skills-choice">${content}</a>`
+      : `<div class="skill-tile">${content}</div>`;
+  }).join('');
+  return `<section class="skills-gallery" aria-labelledby="capabilities-heading"><div class="section-bar"><h2 id="capabilities-heading">Employability capabilities in action</h2><span>Skillsville prototype</span></div><div class="skill-tiles">${tiles}</div></section>`;
+}
+
 function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/');id=id||'overview';if(id==='purpose')id='research-origins';if(id==='research-background'&&sourceId&&sourceTheme[sourceId])id=sourceTheme[sourceId];if(!byId[id])id='overview';const p=byId[id];
  document.title=`${p.title} · SkillsQuest`;
  document.querySelector('#breadcrumb').textContent=p.parent?`${byId[p.parent].title} / ${p.title}`:p.title;
@@ -948,7 +1000,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
   void loadSourceSlides(document.getElementById('source-slides'), slideGroups[id]);
  }
  if(sourceNotes[id]&&id!=='research-background'&&!id.startsWith('scsa'))main.insertAdjacentHTML('beforeend',renderSourceNotes(sourceNotes[id]));
- if(id==='overview')main.insertAdjacentHTML('beforeend',"<section class=\"skills-gallery\"><div class=\"section-bar\"><h2>Eight possible paths to explore</h2><span>Working skill choices</span></div><div class=\"skill-tiles\"><a class=\"skill-tile skill-0\" href=\"#skills-choice\"><img src=\"assets/skill-icons/0.svg\" alt=\"\"><span>Communication</span></a><a class=\"skill-tile skill-1\" href=\"#skills-choice\"><img src=\"assets/skill-icons/1.svg\" alt=\"\"><span>Teamwork & collaboration</span></a><a class=\"skill-tile skill-2\" href=\"#skills-choice\"><img src=\"assets/skill-icons/2.svg\" alt=\"\"><span>Critical thinking & problem-solving</span></a><a class=\"skill-tile skill-3\" href=\"#skills-choice\"><img src=\"assets/skill-icons/3.svg\" alt=\"\"><span>Creativity & innovation</span></a><a class=\"skill-tile skill-4\" href=\"#skills-choice\"><img src=\"assets/skill-icons/4.svg\" alt=\"\"><span>Initiative</span></a><a class=\"skill-tile skill-5\" href=\"#skills-choice\"><img src=\"assets/skill-icons/5.svg\" alt=\"\"><span>Self-management & organisation</span></a><a class=\"skill-tile skill-6\" href=\"#skills-choice\"><img src=\"assets/skill-icons/6.svg\" alt=\"\"><span>Adaptability</span></a><a class=\"skill-tile skill-7\" href=\"#skills-choice\"><img src=\"assets/skill-icons/7.svg\" alt=\"\"><span>Learning to learn</span></a></div></section>");
+ if(['overview','skills-choice','skills-labs'].includes(id))main.insertAdjacentHTML('beforeend',capabilityGallery(id==='overview'));
  addReadiness(main,id);
  const idx=pages.indexOf(p);if(!isWorld)main.insertAdjacentHTML('beforeend',`<div class="page-bottom">${idx?`<a href="#${pages[idx-1].id}">← ${pages[idx-1].title}</a>`:''}${idx<pages.length-1?`<a class="next" href="#${pages[idx+1].id}">${pages[idx+1].title} →</a>`:''}</div>`);
  if(focus){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}if(focus){main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}if((id==='research-background'||researchThemes[id]) && sourceId){document.getElementById(`source-${sourceId}`)?.scrollIntoView()}

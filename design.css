@@ -6,3 +6,5 @@
 
 /* Current 3D view supplied by the owner: preserve the complete boardwalk scene. */
 .overview-art{height:auto;aspect-ratio:718 / 378;background-position:center;background-size:cover}
+/* Live, native-resolution rendering; keyboard interaction stays in the full game. */
+.overview-art{position:relative;overflow:hidden;margin-bottom:0}.showcase-frame{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}.showcase-controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:12px 0 28px;font-size:12px;color:#557477}.showcase-controls span{margin-right:auto}.showcase-controls button,.showcase-controls a{font:inherit;background:#e4ede7;border:1px solid #c5d8ce;border-radius:9px;padding:8px 12px;color:#315e65;text-decoration:none;cursor:pointer}.showcase-controls button:focus-visible,.showcase-controls a:focus-visible{outline:3px solid #39797d;outline-offset:3px}

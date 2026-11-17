@@ -24,7 +24,7 @@
   const wrap=document.createElement('div');wrap.className='page-heading';title.before(wrap);wrap.append(title);
   const icon=document.createElement('span');icon.className='heading-icon';icon.setAttribute('aria-hidden','true');
   icon.innerHTML=`<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${paths[icons[id]||'book']}</svg>`;wrap.append(icon);
-  const hero=document.querySelector('.overview-art');if(hero)hero.setAttribute('aria-label','Screenshot of the actual Skillsville prototype island, with Skills Labs, My Portfolio and Discovery Plaza');
+  const hero=document.querySelector('.overview-art');if(hero)hero.setAttribute('aria-label','Current Skillsville 3D scene: sunset boardwalk, learner avatar, glass-domed Communication lab and landscaped learning paths');
  }
  new MutationObserver(decorate).observe(document.querySelector('main'),{childList:true});
  decorate();

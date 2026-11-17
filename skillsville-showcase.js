@@ -15,7 +15,13 @@
   function pause(){frame?.remove();frame=null;button.textContent='Play live view';button.setAttribute('aria-pressed','false');status.textContent='Skillsville · image preview';hero.setAttribute('role','img');}
   function play(){
    if(frame)return;hero.removeAttribute('role');
-   frame=document.createElement('iframe');frame.src='skillsville/';frame.title='Animated Skillsville world preview';frame.tabIndex=-1;frame.inert=true;frame.setAttribute('aria-hidden','true');frame.setAttribute('loading','lazy');frame.className='showcase-frame';hero.append(frame);
+   frame=document.createElement('iframe');
+   frame.src='skillsville/';
+   frame.title='Playable Skillsville world';
+   frame.loading='lazy';
+   frame.className='showcase-frame';
+   frame.style.pointerEvents='auto';
+   hero.append(frame);
    button.textContent='Pause live view';button.setAttribute('aria-pressed','true');status.textContent='Skillsville · live world';
    frame.addEventListener('load',()=>{try{const game=frame.contentDocument?.querySelector('iframe');const doc=game?.contentDocument;const canvas=doc?.querySelector('#view3d');if(canvas?.hidden)pause();}catch(_error){}});
   }

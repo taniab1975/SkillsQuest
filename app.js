@@ -332,6 +332,16 @@ const sourceNotes = {
 const topicExtracts = {
   "research-frameworks": [
     [
+      "What school implementation involved",
+      "Rossmoyne’s example used a cross-curriculum team, leadership support, teacher professional learning, shared resources and a school audit. That experience helps identify the support a pilot school would need. The applicant and host remain open.",
+      [
+        [
+          "Rossmoyne professional learning slides",
+          "#research-frameworks/rossmoyne"
+        ]
+      ]
+    ],
+    [
       "Capabilities in context",
       "Bill Lucas’s 2018 Mitchell Institute snapshot traces how education systems have described capabilities over time and compares 15 international frameworks. Pages 2–5 include examples such as Habits of Mind, the International Baccalaureate learner profile, New Pedagogies for Deep Learning and UNESCO’s transversal competencies. For SkillQuest, it is a useful check on whether a proposed set gives enough attention to reflection, learning dispositions and citizenship alongside work skills.",
       [["Read Capabilities in Context (PDF)","https://vuir.vu.edu.au/38693/1/Capabilities-in-context.pdf"]]
@@ -422,18 +432,6 @@ const topicExtracts = {
       ]
     ]
   ],
-  "who-will-host": [
-    [
-      "What school implementation involved",
-      "Rossmoyne’s example used a cross-curriculum team, leadership support, teacher professional learning, shared resources and a school audit. That experience helps identify the support a pilot school would need. The applicant and host remain open.",
-      [
-        [
-          "Rossmoyne professional learning slides",
-          "#teacher-view"
-        ]
-      ]
-    ]
-  ],
   "how-it-will-work": [
     [
       "From practice to evidence",
@@ -504,7 +502,8 @@ const topicExtracts = {
 const slideGroups = {
   "research-frameworks": [
     "skills-choice-a",
-    "skills-choice-b"
+    "skills-choice-b",
+    "teacher-view"
   ],
   "assessment": [
     "assessment"
@@ -521,9 +520,7 @@ const slideGroups = {
   "portfolio-view": [
     "portfolio-view"
   ],
-  "teacher-view": [
-    "teacher-view"
-  ],
+
   "efficacy-building": [
     "efficacy-building"
   ],

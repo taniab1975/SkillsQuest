@@ -120,33 +120,10 @@ const references = [
     "citation": "Dr Lucy Halsall. Supplied excerpt in Work Capabilities, 7 February 2023, pp. 1–8. The presentation also credits Janet Silburn Barker.",
     "links": [
       "skills-choice",
-      "pedagogy",
-      "reflection-tool"
+        "reflection-tool"
     ],
     "url": "https://myresources.education.wa.edu.au/programs/career-learning-toolkit/work-capabilities",
     "linkTitle": "WA Career Learning Toolkit"
-  },
-  {
-    "id": "rossmoyne",
-    "title": "Rossmoyne SHS illustration of practice",
-    "type": "School practice",
-    "citation": "Janet Silburn Barker, Rossmoyne SHS section of Work Capabilities, 7 February 2023, pp. 9–39.",
-    "links": [
-      "pedagogy",
-      "teacher-view",
-      "scsa-application"
-    ]
-  },
-  {
-    "id": "harrisdale",
-    "title": "Harrisdale Entrepreneurship and Capabilities",
-    "type": "School practice",
-    "citation": "Embedding Capabilities into the Entrepreneurship and Innovation Elective, pp. 4, 16, 23 and 30.",
-    "links": [
-      "skills-choice",
-      "skills-labs",
-      "pedagogy"
-    ]
   },
   {
     "id": "tkc",
@@ -166,8 +143,7 @@ const references = [
     "type": "Earlier project thinking",
     "citation": "Kolbe and reporting, slides 1, 4–5.",
     "links": [
-      "pedagogy",
-      "reflection-tool",
+        "reflection-tool",
       "portfolio-view"
     ]
   },
@@ -220,10 +196,6 @@ const sourceNotes = {
       "Compare the vocabulary and intended uses of different frameworks before setting the program’s capability names."
     ],
     [
-      "harrisdale",
-      "Use the elective’s four initial areas to compare coverage and overlap with the eight prototype themes."
-    ],
-    [
       "tkc",
       "Test the sets against real activities. Compare observable behaviours, where learners can practise them and what evidence they could collect. Formal selection is open."
     ]
@@ -233,20 +205,8 @@ const sourceNotes = {
       "kolb",
       "Build a cycle into lab activities. Have an experience, reflect on what happened, draw a conclusion and test a revised approach."
     ],
-    [
-      "harrisdale",
-      "Use short, enjoyable projects to practise several capabilities together. Debrief the choices and what changed."
-    ],
-    [
-      "rossmoyne",
-      "Support consistent teaching with shared definitions, model lessons and teacher-led discussion."
-    ]
   ],
   "skills-labs": [
-    [
-      "harrisdale",
-      "A design challenge could make learners use more than one capability. Scope a clear opportunity to practise and revisit each target behaviour."
-    ]
   ],
   "portfolio-entry": [
     [
@@ -277,10 +237,6 @@ const sourceNotes = {
     ]
   ],
   "teacher-view": [
-    [
-      "rossmoyne",
-      "A shared set of fictional examples and review prompts could help teachers compare judgements in a pilot."
-    ]
   ],
   "assessment": [
     [
@@ -323,24 +279,10 @@ const sourceNotes = {
     ]
   ],
   "scsa-application": [
-    [
-      "rossmoyne",
-      "Use teacher exemplars and shared discussion to prepare for the pilot and learn where the review criteria need clarification."
-    ]
   ]
 };
 const topicExtracts = {
   "research-frameworks": [
-    [
-      "What school implementation involved",
-      "Rossmoyne’s example used a cross-curriculum team, leadership support, teacher professional learning, shared resources and a school audit. That experience helps identify the support a pilot school would need. The applicant and host remain open.",
-      [
-        [
-          "Rossmoyne professional learning slides",
-          "#research-frameworks/rossmoyne"
-        ]
-      ]
-    ],
     [
       "Capabilities in context",
       "Bill Lucas’s 2018 Mitchell Institute snapshot traces how education systems have described capabilities over time and compares 15 international frameworks. Pages 2–5 include examples such as Habits of Mind, the International Baccalaureate learner profile, New Pedagogies for Deep Learning and UNESCO’s transversal competencies. For SkillQuest, it is a useful check on whether a proposed set gives enough attention to reflection, learning dispositions and citizenship alongside work skills.",
@@ -394,13 +336,13 @@ const topicExtracts = {
     ],
     [
       "Compare models in their original context",
-      "Lucy Halsall’s Department slides bring together Australian and international models. Rossmoyne groups capabilities for consistent teaching across learning areas. Harrisdale shows how an elective chose a teachable subset and later drew on Skills Builder. The TKC slides compare a competency model and an activity map across multiple frameworks. The formal SkillQuest capability set remains open."
+      "Lucy Halsall’s Department slides bring together Australian and international models. The TKC slides compare a competency model and an activity map across multiple frameworks. The formal SkillQuest capability set remains open."
     ]
   ],
   "assessment": [
     [
       "Kolb, STAR and SAO in practice",
-      "The reporting deck and Matching Not Ranking slides show David Kolb’s cycle. Learners have an experience, reflect on it, draw a conclusion and try a revised approach. STAR helps them account for their situation, task, action and result. The earlier Harrisdale and TKC examples use Situation, Action, Outcome (SAO). For a pilot, the same fictional experience can show whether separating Task helps students describe their responsibility and whether a next-attempt prompt helps them apply the learning."
+      "The reporting deck and Matching Not Ranking slides show David Kolb’s cycle. Learners have an experience, reflect on it, draw a conclusion and try a revised approach. STAR helps them account for their situation, task, action and result. The earlier TKC examples use Situation, Action, Outcome (SAO). For a pilot, the same fictional experience can show whether separating Task helps students describe their responsibility and whether a next-attempt prompt helps them apply the learning."
     ],
     [
       "Assessment that fits the learning goal",
@@ -432,26 +374,10 @@ const topicExtracts = {
       ]
     ]
   ],
-  "how-it-will-work": [
-    [
-      "From practice to evidence",
-      "Harrisdale’s elective sequenced explicit capability teaching, project practice, learner self-assessment and a progress log. Rossmoyne’s implementation started with shared definitions and teacher examples before widening delivery. SkillQuest can use these as school practice examples for designing a pilot.",
-      [
-        [
-          "Harrisdale project examples",
-          "#skills-labs"
-        ],
-        [
-          "Progress log extract",
-          "#portfolio-entry"
-        ]
-      ]
-    ]
-  ],
   "main-ecosystem": [
     [
       "Where the source ideas fit",
-      "The source examples connect explicit teaching and repeat practice to recording and reviewing an authentic experience. The Skills Labs, Portfolio Entry, Portfolio View and Teacher View tabs contain the corresponding extracts."
+      "The source examples connect explicit teaching and repeat practice to recording and reviewing an authentic experience. The Skills Labs and portfolio pages develop the proposed student journey; available source extracts remain in Research & Background."
     ]
   ],
   "provider-view": [
@@ -501,31 +427,24 @@ const topicExtracts = {
 };
 const slideGroups = {
   "research-frameworks": [
-    "skills-choice-a",
-    "skills-choice-b",
-    "teacher-view"
+    "skills-choice-a-source-1",
+    "skills-choice-a-source-2",
+    "skills-choice-a-source-3",
+    "skills-choice-b-source-1",
+    "skills-choice-b-source-2"
   ],
   "assessment": [
     "assessment"
   ],
 
-  "skills-labs": [
-    "skills-labs"
-  ],
-  "portfolio-entry": [
-    "portfolio-entry"
-  ],
+
+
   "portfolio-view": [
     "portfolio-view"
   ],
 
-  "research-practice": [
-    "pedagogy",
-    "efficacy-building"
-  ],
-  "transferable-skills": [
-    "transferable-skills"
-  ],
+  "research-practice": [],
+
   "scsa-application": [
     "scsa-application"
   ]
@@ -560,8 +479,8 @@ menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')
 function cards(ids){return `<div class="grid">${ids.map(id=>{const p=byId[id];return `<a class="card" href="${pageHref(id)}"><div class="card-top"><span class="arrow" aria-hidden="true">↗</span></div><h3>${p.title}</h3><p>${p.intro}</p></a>`}).join('')}</div>`}
 const researchThemes = {
  'research-origins':['tkc'],
- 'research-frameworks':['halsall','rossmoyne'],
- 'research-practice':['harrisdale','kolb'],
+ 'research-frameworks':['halsall'],
+ 'research-practice':['kolb'],
  'research-pathways':['matching','pathways']
 };
 const sourceTheme = Object.fromEntries(Object.entries(researchThemes).flatMap(([theme,ids])=>ids.map(id=>[id,theme])));
@@ -589,8 +508,8 @@ const capabilityModels = [
   ],
   [
     "Skills Builder",
-    "2024 version shown at Harrisdale · slide 18",
-    "#research-background/harrisdale"
+    "Eight-skill framework · Skills Builder Benchmark",
+    "https://www.skillsbuilder.org/global/benchmark"
   ],
   [
     "Melbourne New Metrics",
@@ -808,7 +727,7 @@ function capabilityComparison() {
    </table>
   </div>
   <p><strong>What do you think?</strong> These choices are open for discussion. Use Comments to share your thoughts on the proposed labs, the frameworks or what we may have missed. Input from SCSA and career-development colleagues is especially welcome.</p>
-  <p>The Skills Builder column reflects the version in the supplied reference material. Source documents, school examples and fuller research remain in <a href="#research-frameworks">Skills Frameworks</a>.</p>
+  <p>The Skills Builder column uses the eight skills listed on its Benchmark page. Other source documents and fuller research remain in <a href="#research-frameworks">Skills Frameworks</a>.</p>
  </section>`;
 }
 
@@ -837,7 +756,7 @@ function renderTopicExtracts(extracts) {
 async function loadSourceSlides(container, groups) {
  try {
   const batches = await Promise.all(groups.map(async group => {
-   const response = await fetch(`research-slides/${group}.json`);
+   const response = await fetch(`research-slides/${group}.json?v=source-cleanup-20261117`);
    if (!response.ok) throw new Error('Slides unavailable');
    return response.json();
   }));
@@ -931,7 +850,7 @@ function render(focus=false){let [id, sourceId]=location.hash.slice(1).split('/'
  else if(p.href)main.innerHTML=`<iframe class="world-frame" title="Skillsville prototype world" src="${p.href}" allow="fullscreen" allowfullscreen></iframe>`;
  else if(id==='skills-choice')main.innerHTML=`${header}
 <section class="content-panel"><h2>The framework landscape</h2>
-<p>For decades, educators, researchers and employers have worked towards a common language for skills. Frameworks help us describe capabilities, but their labels, groupings and purposes differ. The <a href="#research-frameworks">Skills Frameworks research and discussion papers</a> bring this work together, including Bill Lucas, Lucy Sattler and the Rossmoyne research collation.</p>
+<p>For decades, educators, researchers and employers have worked towards a common language for skills. Frameworks help us describe capabilities, but their labels, groupings and purposes differ. The <a href="#research-frameworks">Skills Frameworks research and discussion papers</a> bring this work together, including Bill Lucas and Lucy Sattler.</p>
 <p>Three references are particularly relevant to the next stage of SkillsQuest:</p>
 <ul><li><strong>SCSA General Capabilities:</strong> updated in 2026, these seven capabilities and learning continua provide a current WA educational reference. They are not an endorsed-program checklist. <a href="https://k10outline.scsa.wa.edu.au/home/wa-curriculum/general-capabilities">SCSA framework</a>.</li>
 <li><strong>Core Skills for Work:</strong> ten areas of non-technical work capability. SCSA’s Authority-developed Workplace Learning (ADWPL) Skills Journal draws on this framework, making it a useful reference for reflection and evidence. SkillsQuest is a separate proposed program. <a href="https://www.dewr.gov.au/skills-information-training-providers/core-skills-work-developmental-framework">Framework</a> · <a href="https://senior-secondary.scsa.wa.edu.au/__data/assets/word_doc/0006/337056/EP-ADWPL-Skills-Journal-Teacher-s-Guide.docx">ADWPL Teacher’s Guide</a>.</li>
